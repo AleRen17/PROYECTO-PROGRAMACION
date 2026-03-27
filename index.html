@@ -16,15 +16,30 @@
         crossorigin="anonymous"></script>
     <!-- Fin Scripts para funciones de Bootstrap, ww3School, etc-->
     <!-- Barra de navegación -->
-    <div class="container" id="inicio">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"> <a href="/"
+    <div class="container-fluid" id="inicio" style="position: sticky; top: 0; background-color: white;">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"> <a href="index.html"
                 class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"> <svg
                     class="bi me-2" width="40" height="32" aria-hidden="true">
                     <use xlink:href="#bootstrap"></use>
-                </svg> <span class="fs-4">Bienvenidos</span> </a>
+                </svg> <span class="fs-4">Página junta de accion comunal</span> </a>
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Proyectos comunitarios</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">Veredas Vecinas</a></li>
+                <li class="nav-item"><a href="#" class="nav-link" aria-current="page">Proyectos comunitarios</a>
+                </li>
+                <li class="nav-item" class="nav-link">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn" data-bs-toggle="dropdown"
+                            aria-expanded="false">Veredas aledañas</button>
+                        <ul class="dropdown-menu" style="color: blue;">
+                            <li><a class="dropdown-item" href="#">Vereda 1</a></li>
+                            <li><a class="dropdown-item" href="#">Vereda 2</a></li>
+                            <li><a class="dropdown-item" href="#">Vereda 3</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Separated link</a></li>
+                        </ul>
+                    </div>
+                </li>
                 <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
                 <li class="nav-item"><a href="#" class="nav-link">About</a></li>
@@ -34,7 +49,14 @@
     <h1>Bienvenidos a La Lomita</h1>
     <p>La Lomita es un lugar encantador donde puedes disfrutar de la naturaleza y la tranquilidad. Ven y descubre todo
         lo que tenemos para ofrecerte.</p>
-    <p>DEscripcion sobre la lomita</p>
+    <!-- imagen principal-->
+    <img height="200px" src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Vista_de_La_Vereda.jpg" class="img-fluid" alt="Insertar imagen de la vereda">
+    <div class="p-4 p-md-5 mb-6 rounded text-body-emphasis bg-body-secondary">
+        <div class="col-lg-6 px-0">
+            <h1 class="display-4 fst-italic">La lomita</h1>
+            <p class="lead my-3">Pagina principal de la vereda la lomita</p>
+        </div>
+    </div>
     <!-- Carrusel de imágenes -->
     <div class="container-fluid">
         <div class="row col-12">
@@ -58,7 +80,8 @@
                             </div>
                         </div>
                         <div class="carousel-item" data-bs-interval="2000">
-                            <img src="https://somosiberoamerica.org/wp-content/uploads/2022/09/Onda-Pais-Imagen-destacada.jpg" class="d-block w-100" alt="...">
+                            <img src="https://somosiberoamerica.org/wp-content/uploads/2022/09/Onda-Pais-Imagen-destacada.jpg"
+                                class="d-block w-100" alt="...">
                             <div class="carousel-caption d-none d-md-block">
                                 <h5>Cultura y comunidad</h5>
                                 <p>Some representative placeholder content for the second slide.</p>
@@ -84,13 +107,21 @@
                     </button>
                 </div>
             </div>
-        </div>
+            <div class="col-6">
+                <h2>Proyectos comunitarios</h2>
+                <p>En La Lomita, nos enorgullece llevar a cabo una variedad de proyectos comunitarios que buscan mejorar
+                    la calidad de vida de nuestros residentes y promover el desarrollo sostenible. Desde iniciativas de
+                    reciclaje hasta programas de educación ambiental, estamos comprometidos con el bienestar de nuestra
+                    comunidad y el cuidado del medio ambiente.</p>
+                <p>Únete a nosotros en nuestras próximas actividades y sé parte del cambio positivo en La Lomita.
+                    Juntos, podemos construir un futuro mejor para todos.</p>
+            </div>
         </div>
 </body>
 <!-- Footer de la pagina-->
 <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <p class="col-md-4 mb-0 text-body-secondary">© 2025 Company, Inc</p> <a href="/"
+        <p class="col-md-4 mb-0 text-body-secondary">© 2026 Todos los derechos reservados</p> <a href="/"
             class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
             aria-label="Bootstrap"> <svg class="bi me-2" width="40" height="32" aria-hidden="true">
                 <use xlink:href="#bootstrap"></use>
