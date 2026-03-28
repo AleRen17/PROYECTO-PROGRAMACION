@@ -9,45 +9,53 @@
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
 </head>
 
-<body>
+<body style="font-size: 16px;">
     <!-- Scripts para funciones de Bootstrap, ww3School, etc -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
     <!-- Fin Scripts para funciones de Bootstrap, ww3School, etc-->
     <!-- Barra de navegación -->
-    <div class="container-fluid" id="inicio" style="position: sticky; top: 0; background-color: white;">
+    <div class="container-fluid"
+        style="position: sticky; top: 0; background-color: rgb(255, 255, 255); z-index: 1000; border-bottom: 20px;">
         <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"> <a href="index.html"
                 class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"> <svg
                     class="bi me-2" width="40" height="32" aria-hidden="true">
                     <use xlink:href="#bootstrap"></use>
-                </svg> <span class="fs-4"><img src="img/logo.png" alt="Icono" style="width: 45px; height: 45px; vertical-align: middle; margin-right: 8px;">Página junta de accion comunal</span> </a>
+                </svg> <span class="fs-4"><img src="img/logo.png" alt="Icono"
+                        style="width: 45px; height: 45px; vertical-align: middle; margin-right: 8px;">Página junta de
+                    accion comunal</span> </a>
             <ul class="nav nav-pills">
-                <li class="nav-item"><a href="#" class="nav-link" aria-current="page">Proyectos comunitarios</a>
+                <li class="nav-item"><a href="proyectos_comunitarios.html" class="nav-link"
+                        aria-current="page">Proyectos comunitarios</a>
                 </li>
-                <li class="nav-item" class="nav-link">
+
+                <li class="nav-item"><a href="historia_patrimonio.html" class="nav-link">Historia y patrimonio</a></li>
+                <li class="nav-item"><a href="transparencia_gestion.html" class="nav-link">Transparencia y gestión</a>
+                </li>
+                <li class="nav-item">
                     <div class="btn-group">
-                        <button type="button" class="btn btn" data-bs-toggle="dropdown"
-                            aria-expanded="false">Veredas aledañas</button>
+                        <button type="button" class="btn btn" data-bs-toggle="dropdown" aria-expanded="false">Veredas
+                            aledañas</button>
                         <ul class="dropdown-menu" style="color: blue;">
                             <li><a class="dropdown-item" href="#">Vereda 1</a></li>
+                            <hr class="dropdown-divider">
                             <li><a class="dropdown-item" href="#">Vereda 2</a></li>
+                            <hr class="dropdown-divider">
                             <li><a class="dropdown-item" href="#">Vereda 3</a></li>
                             <li>
-                                <hr class="dropdown-divider">
+
                             </li>
-                            <li><a class="dropdown-item" href="#">Separated link</a></li>
                         </ul>
                     </div>
                 </li>
-                <li class="nav-item"><a href="#" class="nav-link">Historia y patrimonio</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+
             </ul>
         </header>
     </div>
     <!-- imagen principal-->
-    <img height="200px" src="img/Vista_de_La_Vereda.jpg" class="img-fluid" alt="Insertar imagen de la vereda">
+    <img height="200px" src="img/Vista_de_La_Vereda.jpg" class="img-fluid" alt="Insertar imagen de la vereda"
+        id="inicio">
     <!-- Texto bajo esa imagen-->
     <div class="p-4 p-md-3 mb-6 rounded text-body-emphasis bg-dark-subtle">
         <div class="col-lg-6 px-0">
@@ -55,12 +63,15 @@
             <p class="lead my-3">Pagina principal de la vereda la lomita</p>
         </div>
     </div>
-    <!-- Carrusel de imágenes -->
+
+    <br>
+    <!-- Carrusel de imágenes de las noticias -->
     <div class="container-fluid">
         <div class="row col-12">
-            
+
             <div class="col-6">
-                <h1>Hola</h1>
+                <!-- Titulo-->
+                <h2 style="text-align: center;">Ultimas Noticias</h2>
                 <div id="carouselExampleDark" class="carousel carousel-dark slide">
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
@@ -107,17 +118,32 @@
                     </button>
                 </div>
             </div>
+            <!-- Texto al lado del carrusel de noticias-->
             <div class="col-6">
-                <h2>Proyectos comunitarios</h2>
-                <p>En La Lomita, nos enorgullece llevar a cabo una variedad de proyectos comunitarios que buscan mejorar
-                    la calidad de vida de nuestros residentes y promover el desarrollo sostenible. Desde iniciativas de
-                    reciclaje hasta programas de educación ambiental, estamos comprometidos con el bienestar de nuestra
-                    comunidad y el cuidado del medio ambiente.</p>
+                <h2 style="text-align: center;">Sobre la página</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                    aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+                    cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
+                    culpa qui officia deserunt mollit anim id est laborum.<br>Lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
+                    veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                    irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+                    Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                    est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                    voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+                    proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</p>
                 <p>Únete a nosotros en nuestras próximas actividades y sé parte del cambio positivo en La Lomita.
                     Juntos, podemos construir un futuro mejor para todos.</p>
             </div>
         </div>
+        <h1>Cultura y comunidad</h1>
+
+        
 </body>
+
 <!-- Footer de la pagina-->
 <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
