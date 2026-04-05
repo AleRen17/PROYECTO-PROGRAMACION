@@ -4,17 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transparencia y Gestión</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <style>
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+      /* ── Variables ── */
+      :root {
+        --verde: #13713f;
+        --verde-claro: #e8f5ee;
+        --verde-medio: #2d9e60;
+        --gris-bg: #f4f3ef;
+        --gris-borde: #ddd8ce;
+        --texto: #1c1c1a;
+        --texto-suave: #5c5b56;
+        --blanco: #ffffff;
+        --radio: 14px;
       }
 
-      body {
-        font-family: 'Segoe UI', sans-serif;
+      /* ── NAV ── */
+      .navbar-jac {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: var(--blanco);
+        border-bottom: 1px solid var(--gris-borde);
+        padding: 0 2rem;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        animation: fadeIn 0.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .nav-brand img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
+      .nav-brand span {
+        font-size: 20px;
+        font-weight: 500;
+        color: black;
+      }
+
+      .nav-links-list {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        list-style: none;
+      }
+
+      .nav-links-list a,
+      .nav-links-list button {
+        font-family: "DM Sans", sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+        color: var(--texto-suave);
+        text-decoration: none;
+        padding: 7px 14px;
+        border-radius: 8px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        transition: background 0.15s, color 0.15s;
+      }
+
+      .nav-links-list a:hover,
+      .nav-links-list button:hover {
+        background: var(--verde-claro);
+        color: var(--verde);
+      }
+
+      .nav-links-list a.activo {
+        background: var(--verde-claro);
+        color: var(--verde);
+        font-weight: 500;
+      }
+
+      .dropdown-wrap {
+        position: relative;
+      }
+
+      .dropdown-menu-jac {
+        display: none;
+        position: absolute;
+        top: calc(100% + 6px);
+        right: 0;
+        background: var(--blanco);
+        border: 1px solid var(--gris-borde);
+        border-radius: var(--radio);
+        min-width: 160px;
+        overflow: hidden;
+        z-index: 200;
+      }
+
+      .dropdown-wrap:hover .dropdown-menu-jac,
+      .dropdown-wrap:focus-within .dropdown-menu-jac {
+        display: block;
+      }
+
+      .dropdown-menu-jac a {
+        display: block;
+        padding: 9px 16px;
+        font-size: 13px;
+        color: var(--texto-suave);
+        text-decoration: none;
+        transition: background 0.15s;
+      }
+
+      .dropdown-menu-jac a:hover {
+        background: var(--verde-claro);
+        color: var(--verde);
       }
 
       /* =====================
@@ -183,43 +303,34 @@
         crossorigin="anonymous"></script>
     <!-- Fin Scripts para funciones de Bootstrap, ww3School, etc-->
      <!-- Barra de navegación -->
-     <div class="container-fluid"
-        style="position: sticky; top: 0; background-color: white; z-index: 1000; border-bottom: 20px;">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"> <a href="index.html"
-                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"> <svg
-                    class="bi me-2" width="40" height="32" aria-hidden="true">
-                    <use xlink:href="#bootstrap"></use>
-                </svg> <span class="fs-4"><img src="img/logo.png" alt="Icono"
-                        style="width: 45px; height: 45px; vertical-align: middle; margin-right: 8px;">Página junta de
-                    accion comunal</span> </a>
-            <ul class="nav nav-pills">
-                <li class="nav-item"><a href="proyectos_comunitarios.html" class="nav-link"
-                        aria-current="page">Proyectos comunitarios</a>
-                </li>
+     <nav class="navbar-jac">
+       <a href="index.html" class="nav-brand">
+         <img src="img/logo.png" onerror="this.style.background = 'var(--verde-claro)'; this.style.borderRadius = '50%';" />
+         <span>Junta de Acción Comunal Vereda la Lomita - San Pablo</span>
+       </a>
 
-                <li class="nav-item"><a href="historia_patrimonio.html" class="nav-link">Historia y patrimonio</a></li>
-                <li class="nav-item"><a href="transparencia_gestion.html" class="nav-link">Transparencia y gestión</a>
-                </li>
-                <li class="nav-item">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn" data-bs-toggle="dropdown" aria-expanded="false">Veredas
-                            aledañas</button>
-                        <ul class="dropdown-menu" style="color: blue;">
-                            <li><a class="dropdown-item" href="#">Vereda 1</a></li>
-                            <hr class="dropdown-divider">
-                            <li><a class="dropdown-item" href="#">Vereda 2</a></li>
-                            <hr class="dropdown-divider">
-                            <li><a class="dropdown-item" href="#">Vereda 3</a></li>
-                            <li>
-
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
-            </ul>
-        </header>
-    </div>
+       <ul class="nav-links-list">
+         <li>
+           <a href="proyectos_comunitarios.html">Proyectos comunitarios</a>
+         </li>
+         <li>
+           <a href="historia_patrimonio.html">Historia y patrimonio</a>
+         </li>
+         <li>
+           <a href="transparencia_gestion.html" class="activo">Transparencia y gestión</a>
+         </li>
+         <li>
+           <div class="dropdown-wrap">
+             <button>Veredas aledañas ▾</button>
+             <div class="dropdown-menu-jac">
+               <a href="#">Vereda 1</a>
+               <a href="#">Vereda 2</a>
+               <a href="#">Vereda 3</a>
+             </div>
+           </div>
+         </li>
+       </ul>
+     </nav>
     <!-- Scripts para funciones de Bootstrap, ww3School, etc -->   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
@@ -236,7 +347,7 @@
       <div class="footer-left">
         <div class="footer-brand">
           <div class="brand-icon">🏛</div>
-          <h2>Tu Organización</h2>
+          <h2>Junta de Acción Comunal Vereda la Lomita - San Pablo</h2>
         </div>
         <p class="sede-label">Sede Principal</p>
         <div class="info-block">
@@ -288,7 +399,7 @@
         </div>
       </div>
       <div class="footer-right">
-        <img src="img/logo.png" alt="Logo Tu Organización">
+        <img src="img/logo.png" alt="Logo Junta de Acción Comunal Vereda la Lomita - San Pablo">
       </div>
     </div>
     <div class="footer-bottom">
