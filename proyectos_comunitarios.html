@@ -1,50 +1,1070 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyectos Comunitarios</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-</head>
-<body>
-    <!-- Scripts para funciones de Bootstrap, ww3School, etc -->   
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <!-- Fin Scripts para funciones de Bootstrap, ww3School, etc-->
-    <h1>Proyectos Comunitarios</h1>
-    <nav id="navbar-example2" class="navbar bg-body-tertiary px-3 mb-3">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <a class="nav-link" href="#scrollspyHeading1">First</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#scrollspyHeading2">Second</a>
-    </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
-      <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="#scrollspyHeading3">Third</a></li>
-        <li><a class="dropdown-item" href="#scrollspyHeading4">Fourth</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item" href="#scrollspyHeading5">Fifth</a></li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyectos — Junta de Acción Comunal</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <style>
+      /* ── Variables ── */
+      :root {
+        --verde: #13713f;
+        --verde-claro: #e8f5ee;
+        --verde-medio: #2d9e60;
+        --gris-bg: #f4f3ef;
+        --gris-borde: #ddd8ce;
+        --texto: #1c1c1a;
+        --texto-suave: #5c5b56;
+        --blanco: #ffffff;
+        --radio: 14px;
+      }
+
+      /* ── NAV ── */
+      .navbar-jac {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: var(--blanco);
+        border-bottom: 1px solid var(--gris-borde);
+        padding: 0 2rem;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        animation: fadeIn 0.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .nav-brand img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
+      .nav-brand span {
+        font-size: 20px;
+        font-weight: 500;
+        color: black;
+      }
+
+      .nav-links-list {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        list-style: none;
+      }
+
+      .nav-links-list a,
+      .nav-links-list button {
+        font-family: "DM Sans", sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+        color: var(--texto-suave);
+        text-decoration: none;
+        padding: 7px 14px;
+        border-radius: 8px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+
+      .nav-links-list a:hover,
+      .nav-links-list button:hover {
+        background: var(--verde-claro);
+        color: var(--verde);
+      }
+
+      .nav-links-list a.activo {
+        background: var(--verde-claro);
+        color: var(--verde);
+        font-weight: 500;
+      }
+
+      .dropdown-wrap {
+        position: relative;
+      }
+
+      .dropdown-menu-jac {
+        display: none;
+        position: absolute;
+        top: calc(100% + 6px);
+        right: 0;
+        background: var(--blanco);
+        border: 1px solid var(--gris-borde);
+        border-radius: var(--radio);
+        min-width: 160px;
+        overflow: hidden;
+        z-index: 200;
+      }
+
+      .dropdown-wrap:hover .dropdown-menu-jac,
+      .dropdown-wrap:focus-within .dropdown-menu-jac {
+        display: block;
+      }
+
+      .dropdown-menu-jac a {
+        display: block;
+        padding: 9px 16px;
+        font-size: 13px;
+        color: var(--texto-suave);
+        text-decoration: none;
+        transition: background 0.15s;
+      }
+
+      .dropdown-menu-jac a:hover {
+        background: var(--verde-claro);
+        color: var(--verde);
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "DM Sans", sans-serif;
+        background: var(--gris-bg);
+        color: var(--texto);
+        min-height: 100vh;
+      }
+
+      /* ── HERO ── */
+      .hero {
+        background: var(--verde);
+        padding: 4rem 2rem 5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background: var(--gris-bg);
+        clip-path: ellipse(55% 100% at 50% 100%);
+      }
+
+      .hero-tag {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.15);
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 5px 14px;
+        border-radius: 20px;
+        margin-bottom: 1.2rem;
+      }
+
+      .hero h1 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.15;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+      }
+
+      .hero p {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.75);
+        max-width: 520px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+
+      /* ── STATS ── */
+      .stats-bar {
+        max-width: 780px;
+        margin: -1.5rem auto 2.5rem;
+        position: relative;
+        z-index: 2;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+        padding: 0 1.5rem;
+      }
+
+      .stat-card {
+        background: var(--blanco);
+        border: 1px solid var(--gris-borde);
+        border-radius: var(--radio);
+        padding: 1.2rem 1rem;
+        text-align: center;
+      }
+
+      .stat-num {
+        font-family: "Fraunces", serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--verde);
+        line-height: 1;
+      }
+
+      .stat-label {
+        font-size: 12px;
+        color: var(--texto-suave);
+        margin-top: 4px;
+      }
+
+      /* ── FILTROS ── */
+      .filtros-wrap {
+        max-width: 1100px;
+        margin: 0 auto 2rem;
+        padding: 0 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .filtro-btn {
+        font-family: "DM Sans", sans-serif;
+        font-size: 13px;
+        font-weight: 500;
+        padding: 7px 16px;
+        border-radius: 20px;
+        border: 1.5px solid var(--gris-borde);
+        background: var(--blanco);
+        color: var(--texto-suave);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .filtro-btn:hover {
+        border-color: var(--verde);
+        color: var(--verde);
+      }
+
+      .filtro-btn.activo {
+        background: var(--verde);
+        border-color: var(--verde);
+        color: #fff;
+      }
+
+      /* ── GRID PROYECTOS ── */
+      .proyectos-grid {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.5rem 4rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 22px;
+      }
+
+      /* ── TARJETA ── */
+      .card {
+        background: var(--blanco);
+        border: 1px solid var(--gris-borde);
+        border-radius: var(--radio);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+        animation: fadeUp 0.4s ease both;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.09);
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .card:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+      .card:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .card:nth-child(3) {
+        animation-delay: 0.15s;
+      }
+      .card:nth-child(4) {
+        animation-delay: 0.2s;
+      }
+      .card:nth-child(5) {
+        animation-delay: 0.25s;
+      }
+      .card:nth-child(6) {
+        animation-delay: 0.3s;
+      }
+
+      /* Imagen / banner de la tarjeta */
+      .card-banner {
+        height: 130px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+        position: relative;
+        flex-shrink: 0;
+      }
+
+      .card-banner img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        inset: 0;
+      }
+
+      .card-banner.verde-bg {
+        background: #c8e6c9;
+      }
+      .card-banner.azul-bg {
+        background: #bbdefb;
+      }
+      .card-banner.amber-bg {
+        background: #ffe082;
+      }
+      .card-banner.teal-bg {
+        background: #b2dfdb;
+      }
+      .card-banner.pink-bg {
+        background: #f8bbd0;
+      }
+      .card-banner.purple-bg {
+        background: #e1bee7;
+      }
+
+      /* Badge de categoría sobre la imagen */
+      .card-cat {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        padding: 3px 10px;
+        border-radius: 20px;
+        background: rgba(255, 255, 255, 0.88);
+        color: var(--texto);
+      }
+
+      /* Cuerpo */
+      .card-body {
+        padding: 16px 18px 18px;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+      }
+
+      .card-top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+
+      .card-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--texto);
+        line-height: 1.3;
+      }
+
+      .estado-badge {
+        flex-shrink: 0;
+        font-size: 10px;
+        font-weight: 600;
+        padding: 3px 10px;
+        border-radius: 20px;
+        white-space: nowrap;
+      }
+
+      .estado-badge.en-curso {
+        background: var(--azul-claro);
+        color: var(--azul);
+      }
+      .estado-badge.completado {
+        background: var(--verde-claro);
+        color: var(--verde);
+      }
+      .estado-badge.planeado {
+        background: var(--amarillo-claro);
+        color: var(--amarillo);
+      }
+
+      .card-desc {
+        font-size: 13px;
+        color: var(--texto-suave);
+        line-height: 1.65;
+        margin-bottom: 14px;
+        flex: 1;
+      }
+
+      /* Meta info */
+      .card-meta {
+        display: flex;
+        gap: 14px;
+        font-size: 11px;
+        color: var(--texto-suave);
+        margin-bottom: 12px;
+        flex-wrap: wrap;
+      }
+
+      .card-meta span {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      /* Barra de progreso */
+      .progreso-label {
+        display: flex;
+        justify-content: space-between;
+        font-size: 11px;
+        color: var(--texto-suave);
+        margin-bottom: 5px;
+      }
+
+      .progreso-pct {
+        font-weight: 600;
+        color: var(--texto);
+      }
+
+      .progreso-track {
+        height: 6px;
+        background: var(--gris-bg);
+        border-radius: 6px;
+        overflow: hidden;
+      }
+
+      .progreso-fill {
+        height: 100%;
+        border-radius: 6px;
+        transition: width 1s ease;
+      }
+
+      .fill-verde {
+        background: var(--verde-medio);
+      }
+      .fill-azul {
+        background: #378add;
+      }
+      .fill-amber {
+        background: #f59e0b;
+      }
+
+      /* Botón ver más */
+      .card-btn {
+        display: inline-block;
+        margin-top: 14px;
+        font-size: 13px;
+        font-weight: 500;
+        color: var(--verde);
+        text-decoration: none;
+        border: 1.5px solid var(--verde-claro);
+        border-radius: 8px;
+        padding: 7px 14px;
+        transition: all 0.2s;
+        text-align: center;
+      }
+
+      .card-btn:hover {
+        background: var(--verde);
+        border-color: var(--verde);
+        color: #fff;
+      }
+
+      /* ── OCULTAR TARJETAS FILTRADAS ── */
+      .card.oculta {
+        display: none;
+      }
+
+      /* ── SIN RESULTADOS ── */
+      .sin-resultados {
+        display: none;
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 3rem;
+        color: var(--texto-suave);
+        font-size: 15px;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 600px) {
+        .nav-links {
+          display: none;
+        }
+        .stats-bar {
+          grid-template-columns: repeat(3, 1fr);
+          gap: 8px;
+        }
+        .stat-num {
+          font-size: 1.5rem;
+        }
+        .hero {
+          padding: 3rem 1.5rem 4.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ── NAVEGACIÓN ── -->
+    <nav class="navbar-jac">
+      <a href="index.html" class="nav-brand">
+        <img
+          src="img/logo.png"
+          onerror="
+            this.style.background = 'var(--verde-claro)';
+            this.style.borderRadius = '50%';
+          "
+        />
+        <span>Junta de Acción Comunal Vereda la Lomita - San Pablo</span>
+      </a>
+
+      <ul class="nav-links-list">
+        <li>
+          <a href="proyectos_comunitarios.html" class="activo"
+            >Proyectos comunitarios</a
+          >
+        </li>
+        <li>
+          <a href="historia_patrimonio.html">Historia y patrimonio</a>
+        </li>
+        <li>
+          <a href="transparencia_gestion.html">Transparencia y gestión</a>
+        </li>
+        <li>
+          <div class="dropdown-wrap">
+            <button>Veredas aledañas ▾</button>
+            <div class="dropdown-menu-jac">
+              <a href="#">Vereda 1</a>
+              <a href="#">Vereda 2</a>
+              <a href="#">Vereda 3</a>
+            </div>
+          </div>
+        </li>
       </ul>
-    </li>
-  </ul>
-</nav>
-<div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example bg-body-tertiary p-3 rounded-2" tabindex="0">
-  <h4 id="scrollspyHeading1">First heading</h4>
-  <p>...</p>
-  <h4 id="scrollspyHeading2">Second heading</h4>
-  <p>...</p>
-  <h4 id="scrollspyHeading3">Third heading</h4>
-  <p>...</p>
-  <h4 id="scrollspyHeading4">Fourth heading</h4>
-  <p>...</p>
-  <h4 id="scrollspyHeading5">Fifth heading</h4>
-  <p>...</p>
-</div>
-    <a href="index.html">Volver al inicio</a>
-</body>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <span class="hero-tag">Transparencia comunitaria</span>
+      <h1>Nuestros proyectos</h1>
+      <p>
+        Conoce el estado de cada iniciativa que trabajamos para mejorar la
+        calidad de vida de nuestro barrio.
+      </p>
+    </section>
+
+    <!-- ── STATS ── -->
+    <div class="stats-bar">
+      <div class="stat-card">
+        <div class="stat-num" id="cnt-total">6</div>
+        <div class="stat-label">Proyectos totales</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="cnt-curso">2</div>
+        <div class="stat-label">En curso</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num" id="cnt-comp">2</div>
+        <div class="stat-label">Completados</div>
+      </div>
+    </div>
+
+    <!-- ── FILTROS ── -->
+    <div class="filtros-wrap">
+      <button class="filtro-btn activo" data-filtro="todos">Todos</button>
+      <button class="filtro-btn" data-filtro="en-curso">En curso</button>
+      <button class="filtro-btn" data-filtro="completado">Completados</button>
+      <button class="filtro-btn" data-filtro="planeado">Planeados</button>
+    </div>
+
+    <!-- ── GRID DE PROYECTOS ── -->
+    <div class="proyectos-grid" id="grid">
+      <!-- TARJETA 1 -->
+      <div class="card" data-estado="en-curso">
+        <div class="card-banner azul-bg">
+          💧
+          <span class="card-cat">Servicios</span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h2 class="card-title">Mejora red de acueducto</h2>
+            <span class="estado-badge en-curso">En curso</span>
+          </div>
+          <p class="card-desc">
+            Cambio de tuberías en los sectores 3 y 4 del barrio para garantizar
+            el suministro continuo de agua potable.
+          </p>
+          <div class="card-meta">
+            <span>📅 Inicio: Mar 2024</span>
+            <span>👷 Alcaldía + JAC</span>
+          </div>
+          <div class="progreso-label">
+            <span>Avance del proyecto</span>
+            <span class="progreso-pct">65%</span>
+          </div>
+          <div class="progreso-track">
+            <div class="progreso-fill fill-azul" style="width: 65%"></div>
+          </div>
+          <a href="#" class="card-btn">Ver detalles →</a>
+        </div>
+      </div>
+
+      <!-- TARJETA 2 -->
+      <div class="card" data-estado="completado">
+        <div class="card-banner verde-bg">
+          🌳
+          <span class="card-cat">Medio ambiente</span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h2 class="card-title">Parque barrio La Esperanza</h2>
+            <span class="estado-badge completado">Completado</span>
+          </div>
+          <p class="card-desc">
+            Adecuación de zonas verdes y juegos infantiles para el disfrute de
+            niños y familias del sector.
+          </p>
+          <div class="card-meta">
+            <span>📅 Fin: Ene 2024</span>
+            <span>👷 JAC + Comunidad</span>
+          </div>
+          <div class="progreso-label">
+            <span>Avance del proyecto</span>
+            <span class="progreso-pct">100%</span>
+          </div>
+          <div class="progreso-track">
+            <div class="progreso-fill fill-verde" style="width: 100%"></div>
+          </div>
+          <a href="#" class="card-btn">Ver detalles →</a>
+        </div>
+      </div>
+
+      <!-- TARJETA 3 -->
+      <div class="card" data-estado="planeado">
+        <div class="card-banner amber-bg">
+          🏫
+          <span class="card-cat">Infraestructura</span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h2 class="card-title">Salón comunal nuevo</h2>
+            <span class="estado-badge planeado">Planeado</span>
+          </div>
+          <p class="card-desc">
+            Construcción del salón de reuniones y eventos comunitarios con
+            capacidad para 80 personas.
+          </p>
+          <div class="card-meta">
+            <span>📅 Inicio: Ago 2024</span>
+            <span>👷 Gobernación</span>
+          </div>
+          <div class="progreso-label">
+            <span>Avance del proyecto</span>
+            <span class="progreso-pct">10%</span>
+          </div>
+          <div class="progreso-track">
+            <div class="progreso-fill fill-amber" style="width: 10%"></div>
+          </div>
+          <a href="#" class="card-btn">Ver detalles →</a>
+        </div>
+      </div>
+
+      <!-- TARJETA 4 -->
+      <div class="card" data-estado="completado">
+        <div class="card-banner teal-bg">
+          🛣️
+          <span class="card-cat">Vías</span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h2 class="card-title">Pavimentación carrera 8</h2>
+            <span class="estado-badge completado">Completado</span>
+          </div>
+          <p class="card-desc">
+            Pavimentación del tramo principal del barrio entre calles 5 y 12,
+            mejorando la movilidad del sector.
+          </p>
+          <div class="card-meta">
+            <span>📅 Fin: Nov 2023</span>
+            <span>👷 INVÍAS + JAC</span>
+          </div>
+          <div class="progreso-label">
+            <span>Avance del proyecto</span>
+            <span class="progreso-pct">100%</span>
+          </div>
+          <div class="progreso-track">
+            <div class="progreso-fill fill-verde" style="width: 100%"></div>
+          </div>
+          <a href="#" class="card-btn">Ver detalles →</a>
+        </div>
+      </div>
+
+      <!-- TARJETA 5 -->
+      <div class="card" data-estado="en-curso">
+        <div class="card-banner pink-bg">
+          💡
+          <span class="card-cat">Energía</span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h2 class="card-title">Alumbrado calle 5</h2>
+            <span class="estado-badge en-curso">En curso</span>
+          </div>
+          <p class="card-desc">
+            Instalación de nuevas luminarias LED en toda la calle 5 para mejorar
+            la seguridad nocturna del barrio.
+          </p>
+          <div class="card-meta">
+            <span>📅 Inicio: May 2024</span>
+            <span>👷 EPM + JAC</span>
+          </div>
+          <div class="progreso-label">
+            <span>Avance del proyecto</span>
+            <span class="progreso-pct">40%</span>
+          </div>
+          <div class="progreso-track">
+            <div class="progreso-fill fill-azul" style="width: 40%"></div>
+          </div>
+          <a href="#" class="card-btn">Ver detalles →</a>
+        </div>
+      </div>
+
+      <!-- TARJETA 6 -->
+      <div class="card" data-estado="planeado">
+        <div class="card-banner purple-bg">
+          🏥
+          <span class="card-cat">Salud</span>
+        </div>
+        <div class="card-body">
+          <div class="card-top">
+            <h2 class="card-title">Jornadas de salud 2024</h2>
+            <span class="estado-badge planeado">Planeado</span>
+          </div>
+          <p class="card-desc">
+            Jornadas gratuitas de vacunación, chequeos médicos y odontología
+            para residentes del barrio.
+          </p>
+          <div class="card-meta">
+            <span>📅 Inicio: Sep 2024</span>
+            <span>👷 Secretaría Salud</span>
+          </div>
+          <div class="progreso-label">
+            <span>Avance del proyecto</span>
+            <span class="progreso-pct">5%</span>
+          </div>
+          <div class="progreso-track">
+            <div class="progreso-fill fill-amber" style="width: 5%"></div>
+          </div>
+          <a href="#" class="card-btn">Ver detalles →</a>
+        </div>
+      </div>
+
+      <p class="sin-resultados" id="sin-resultados">
+        No hay proyectos en esta categoría aún.
+      </p>
+    </div>
+    <!-- /grid -->
+
+    <!-- ── FOOTER ── -->
+    <footer style="background: #13713f; padding: 2.5rem 1.5rem 1.5rem">
+      <div
+        style="
+          background: #fff;
+          border-radius: 14px;
+          padding: 2rem 2.5rem;
+          max-width: 960px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 1fr 220px;
+          gap: 2rem;
+        "
+      >
+        <div>
+          <div
+            style="
+              display: flex;
+              align-items: center;
+              gap: 10px;
+              margin-bottom: 1.2rem;
+            "
+          >
+            <div
+              style="
+                width: 44px;
+                height: 44px;
+                background: #1e2faa;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 20px;
+                color: #fff;
+              "
+            >
+              🏛
+            </div>
+            <h2 style="font-size: 20px; font-weight: 600; color: #1e2faa">
+              Junta de Acción Comunal Vereda la Lomita - San Pablo
+            </h2>
+          </div>
+          <p
+            style="
+              font-size: 13px;
+              font-weight: 600;
+              color: #1e2faa;
+              margin-bottom: 0.5rem;
+            "
+          >
+            Sede Principal
+          </p>
+          <p
+            style="
+              font-size: 13px;
+              color: #444;
+              line-height: 1.7;
+              margin-bottom: 1rem;
+            "
+          >
+            Calle 50 #45-67, Ciudad, Departamento – Colombia<br />Código Postal:
+            050010
+          </p>
+          <div style="font-size: 13px; color: #444; line-height: 1.9">
+            <div>📞 +(57) 604 000 0000</div>
+            <div>📞 Línea Gratuita: 01 8000 00 0000</div>
+            <div>
+              ✉
+              <a
+                href="mailto:contacto@tuorganizacion.gov.co"
+                style="color: #1e2faa"
+                >contacto@tuorganizacion.gov.co</a
+              >
+            </div>
+            <div>🪪 NIT: 000.000000-0</div>
+          </div>
+          <div
+            style="display: flex; flex-wrap: wrap; gap: 8px; margin-top: 1rem"
+          >
+            <a
+              href="#"
+              style="
+                font-size: 12px;
+                color: #1e2faa;
+                background: #e8ecf8;
+                border-radius: 20px;
+                padding: 5px 12px;
+                text-decoration: none;
+              "
+              >f @tuorganizacion</a
+            >
+            <a
+              href="#"
+              style="
+                font-size: 12px;
+                color: #1e2faa;
+                background: #e8ecf8;
+                border-radius: 20px;
+                padding: 5px 12px;
+                text-decoration: none;
+              "
+              >▶ @tuorg_yt</a
+            >
+            <a
+              href="#"
+              style="
+                font-size: 12px;
+                color: #1e2faa;
+                background: #e8ecf8;
+                border-radius: 20px;
+                padding: 5px 12px;
+                text-decoration: none;
+              "
+              >✕ @tuorg_x</a
+            >
+            <a
+              href="#"
+              style="
+                font-size: 12px;
+                color: #1e2faa;
+                background: #e8ecf8;
+                border-radius: 20px;
+                padding: 5px 12px;
+                text-decoration: none;
+              "
+              >◉ @tuorganizacion_ig</a
+            >
+          </div>
+        </div>
+
+        <div
+          style="
+            border-left: 1px solid #e0e0e0;
+            padding-left: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          "
+        >
+          <!--
+          "img/logo.png" 
+        -->
+          <img
+            src="img/logo.png"
+            alt="Logo de la institución"
+            style="max-width: 160px; max-height: 160px; object-fit: contain"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'flex';
+            "
+          />
+          <div
+            style="
+              display: none;
+              width: 140px;
+              height: 140px;
+              border: 2px dashed #c8d0f0;
+              border-radius: 12px;
+              background: #f5f7ff;
+              align-items: center;
+              justify-content: center;
+              font-size: 12px;
+              color: #aaa;
+              text-align: center;
+              padding: 1rem;
+            "
+          >
+            Logo de tu institución
+          </div>
+        </div>
+      </div>
+      <div
+        style="
+          max-width: 960px;
+          margin: 1rem auto 0;
+          padding-top: 0.8rem;
+          border-top: 1px solid rgba(255, 255, 255, 0.2);
+          display: flex;
+          flex-wrap: wrap;
+          gap: 1rem;
+          justify-content: center;
+        "
+      >
+        <a
+          href="#"
+          style="
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+          "
+          >Mapa del Sitio</a
+        >
+        <a
+          href="#"
+          style="
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+          "
+          >Políticas</a
+        >
+        <a
+          href="#"
+          style="
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+          "
+          >Mecanismos de Contacto</a
+        >
+        <a
+          href="#"
+          style="
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.85);
+            text-decoration: none;
+          "
+          >Estadísticas</a
+        >
+      </div>
+    </footer>
+
+    <!-- ── JAVASCRIPT: FILTROS ── -->
+    <script>
+      const botones = document.querySelectorAll(".filtro-btn");
+      const tarjetas = document.querySelectorAll(".card");
+      const sinRes = document.getElementById("sin-resultados");
+
+      botones.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const filtro = btn.dataset.filtro;
+
+          botones.forEach((b) => b.classList.remove("activo"));
+          btn.classList.add("activo");
+
+          let visibles = 0;
+          tarjetas.forEach((card) => {
+            const estado = card.dataset.estado;
+            const mostrar = filtro === "todos" || estado === filtro;
+            card.classList.toggle("oculta", !mostrar);
+            if (mostrar) visibles++;
+          });
+
+          sinRes.style.display = visibles === 0 ? "block" : "none";
+        });
+      });
+    </script>
+
+    <!-- Scripts para funciones de Bootstrap -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

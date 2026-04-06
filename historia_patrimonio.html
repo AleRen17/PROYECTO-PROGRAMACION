@@ -1,56 +1,746 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Historia y Patrimonio</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-</head>
-<body>
-    <!-- Scripts para funciones de Bootstrap, ww3School, etc -->   
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <!-- Fin Scripts para funciones de Bootstrap, ww3School, etc-->
-     <!-- Barra de navegación -->
-     <div class="container-fluid"
-        style="position: sticky; top: 0; background-color: white; z-index: 1000; border-bottom: 20px;">
-        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom"> <a href="index.html"
-                class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"> <svg
-                    class="bi me-2" width="40" height="32" aria-hidden="true">
-                    <use xlink:href="#bootstrap"></use>
-                </svg> <span class="fs-4"><img src="img/logo.png" alt="Icono"
-                        style="width: 45px; height: 45px; vertical-align: middle; margin-right: 8px;">Página junta de
-                    accion comunal</span> </a>
-            <ul class="nav nav-pills">
-                <li class="nav-item"><a href="proyectos_comunitarios.html" class="nav-link"
-                        aria-current="page">Proyectos comunitarios</a>
-                </li>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Historia y Patrimonio — JAC</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <style>
+      /* ── Variables ── */
+      :root {
+        --verde: #13713f;
+        --verde-claro: #e8f5ee;
+        --verde-medio: #2d9e60;
+        --gris-bg: #f4f3ef;
+        --gris-borde: #ddd8ce;
+        --texto: #1c1c1a;
+        --texto-suave: #5c5b56;
+        --blanco: #ffffff;
+        --radio: 14px;
+      }
 
-                <li class="nav-item"><a href="historia_patrimonio.html" class="nav-link">Historia y patrimonio</a></li>
-                <li class="nav-item"><a href="transparencia_gestion.html" class="nav-link">Transparencia y gestión</a>
-                </li>
-                <li class="nav-item">
-                    <div class="btn-group">
-                        <button type="button" class="btn btn" data-bs-toggle="dropdown" aria-expanded="false">Veredas
-                            aledañas</button>
-                        <ul class="dropdown-menu" style="color: blue;">
-                            <li><a class="dropdown-item" href="#">Vereda 1</a></li>
-                            <hr class="dropdown-divider">
-                            <li><a class="dropdown-item" href="#">Vereda 2</a></li>
-                            <hr class="dropdown-divider">
-                            <li><a class="dropdown-item" href="#">Vereda 3</a></li>
-                            <li>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
 
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+      body {
+        font-family: "DM Sans", "Segoe UI", sans-serif;
+        background: var(--gris-bg);
+        color: var(--texto);
+      }
 
-            </ul>
-        </header>
+      /* ── NAV ── */
+      .navbar-jac {
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        background: var(--blanco);
+        border-bottom: 1px solid var(--gris-borde);
+        padding: 0 2rem;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        animation: fadeIn 0.5s ease;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+      }
+
+      .nav-brand img {
+        width: 40px;
+        height: 40px;
+        object-fit: contain;
+      }
+
+      .nav-brand span {
+        
+        font-size: 20px;
+        font-weight: 500;
+        color: black;
+        
+      }
+
+      .nav-links-list {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        list-style: none;
+      }
+
+      .nav-links-list a,
+      .nav-links-list button {
+        font-family: "DM Sans", sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+        color: var(--texto-suave);
+        text-decoration: none;
+        padding: 7px 14px;
+        border-radius: 8px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        transition:
+          background 0.15s,
+          color 0.15s;
+      }
+
+      .nav-links-list a:hover,
+      .nav-links-list button:hover {
+        background: var(--verde-claro);
+        color: var(--verde);
+      }
+
+      .nav-links-list a.activo {
+        background: var(--verde-claro);
+        color: var(--verde);
+        font-weight: 500;
+      }
+
+      /* Dropdown veredas */
+      .dropdown-wrap {
+        position: relative;
+      }
+
+      .dropdown-menu-jac {
+        display: none;
+        position: absolute;
+        top: calc(100% + 6px);
+        right: 0;
+        background: var(--blanco);
+        border: 1px solid var(--gris-borde);
+        border-radius: var(--radio);
+        min-width: 160px;
+        overflow: hidden;
+        z-index: 200;
+      }
+
+      .dropdown-wrap:hover .dropdown-menu-jac,
+      .dropdown-wrap:focus-within .dropdown-menu-jac {
+        display: block;
+      }
+
+      .dropdown-menu-jac a {
+        display: block;
+        padding: 9px 16px;
+        font-size: 13px;
+        color: var(--texto-suave);
+        text-decoration: none;
+        transition: background 0.15s;
+      }
+
+      .dropdown-menu-jac a:hover {
+        background: var(--verde-claro);
+        color: var(--verde);
+      }
+
+      /* ── HERO ── */
+      .hero {
+        background: var(--verde);
+        padding: 4rem 2rem 5rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background: var(--gris-bg);
+        clip-path: ellipse(55% 100% at 50% 100%);
+      }
+
+      .hero-tag {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.15);
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 5px 14px;
+        border-radius: 20px;
+        margin-bottom: 1.2rem;
+      }
+
+      .hero h1 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(2rem, 5vw, 3.2rem);
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.15;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+      }
+
+      .hero p {
+        font-size: 15px;
+        color: rgba(255, 255, 255, 0.75);
+        max-width: 520px;
+        margin: 0 auto;
+        line-height: 1.7;
+      }
+
+      /* ── CONTENIDO PRINCIPAL ── */
+      .main-wrap {
+        max-width: 1000px;
+        margin: 0 auto;
+        padding: 3rem 1.5rem 4rem;
+      }
+
+      /* ── IMAGEN DESTACADA ── */
+      .img-destacada-wrap {
+        border-radius: var(--radio);
+        overflow: hidden;
+        margin-bottom: 2.5rem;
+        border: 1px solid var(--gris-borde);
+        position: relative;
+      }
+
+      .img-destacada-wrap img {
+        width: 100%;
+        max-height: 420px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .img-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: rgba(19, 113, 63, 0.82);
+        color: rgba(255, 255, 255, 0.92);
+        font-size: 13px;
+        padding: 10px 18px;
+      }
+
+      /* ── SECCIÓN TEXTO HISTORIA ── */
+      .seccion-titulo {
+        font-family: "Fraunces", serif;
+        font-size: 1.6rem;
+        font-weight: 700;
+        color: var(--verde);
+        margin-bottom: 1rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 2px solid var(--verde-claro);
+      }
+
+      .historia-texto {
+        background: var(--blanco);
+        border: 1px solid var(--gris-borde);
+        border-radius: var(--radio);
+        padding: 2rem 2.5rem;
+        margin-bottom: 3rem;
+      }
+
+      .historia-texto p {
+        font-size: 15px;
+        color: var(--texto-suave);
+        line-height: 1.85;
+        margin-bottom: 1.2rem;
+      }
+
+      .historia-texto p:last-child {
+        margin-bottom: 0;
+      }
+
+      /* Letra capital */
+      .historia-texto p:first-child::first-letter {
+        font-family: "Fraunces", serif;
+        font-size: 3.5rem;
+        font-weight: 700;
+        color: var(--verde);
+        float: left;
+        line-height: 0.75;
+        margin-right: 8px;
+        margin-top: 8px;
+      }
+
+      /* ── PATRIMONIO GRID ── */
+      .patrimonio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        margin-bottom: 3rem;
+      }
+
+      .pat-card {
+        background: var(--blanco);
+        border: 1px solid var(--gris-borde);
+        border-radius: var(--radio);
+        overflow: hidden;
+        transition:
+          transform 0.25s,
+          box-shadow 0.25s;
+        animation: fadeUp 0.4s ease both;
+      }
+
+      .pat-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.09);
+      }
+
+      .pat-card:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+      .pat-card:nth-child(2) {
+        animation-delay: 0.1s;
+      }
+      .pat-card:nth-child(3) {
+        animation-delay: 0.15s;
+      }
+      .pat-card:nth-child(4) {
+        animation-delay: 0.2s;
+      }
+
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(16px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .pat-card-img {
+        width: 100%;
+        height: 200px;
+        object-fit: cover;
+        display: block;
+        background: var(--verde-claro);
+      }
+
+      /* Placeholder cuando no hay imagen */
+      .pat-card-img-placeholder {
+        width: 100%;
+        height: 200px;
+        background: var(--verde-claro);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 48px;
+      }
+
+      .pat-card-body {
+        padding: 16px 18px 20px;
+      }
+
+      .pat-card-tag {
+        display: inline-block;
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--verde);
+        background: var(--verde-claro);
+        padding: 3px 10px;
+        border-radius: 20px;
+        margin-bottom: 8px;
+      }
+
+      .pat-card-title {
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--texto);
+        margin-bottom: 8px;
+        line-height: 1.3;
+      }
+
+      .pat-card-desc {
+        font-size: 13px;
+        color: var(--texto-suave);
+        line-height: 1.65;
+      }
+
+      /* ── BOTÓN VOLVER ── */
+      .btn-volver {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--verde);
+        text-decoration: none;
+        border: 1.5px solid var(--verde-claro);
+        border-radius: 8px;
+        padding: 9px 18px;
+        background: var(--blanco);
+        transition: all 0.2s;
+        margin-bottom: 3rem;
+      }
+
+      .btn-volver:hover {
+        background: var(--verde);
+        border-color: var(--verde);
+        color: #fff;
+      }
+
+      /* ── FOOTER ── */
+      .footer-outer {
+        background: #13713f;
+        padding: 2.5rem 1.5rem 1.5rem;
+      }
+
+      .footer-card {
+        background: #ffffff;
+        border-radius: 14px;
+        padding: 2rem 2.5rem;
+        max-width: 960px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 220px;
+        gap: 2rem;
+      }
+
+      .footer-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 1.2rem;
+      }
+
+      .brand-icon {
+        width: 44px;
+        height: 44px;
+        background: #1e2faa;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        color: white;
+      }
+
+      .footer-brand h2 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #1e2faa;
+      }
+
+      .sede-label {
+        font-size: 13px;
+        font-weight: 600;
+        color: #1e2faa;
+        margin-bottom: 0.5rem;
+        letter-spacing: 0.04em;
+      }
+
+      .info-block {
+        margin-bottom: 1rem;
+      }
+
+      .info-block p {
+        font-size: 13px;
+        color: #444;
+        line-height: 1.7;
+      }
+
+      .info-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 6px;
+        font-size: 13px;
+        color: #444;
+        margin-bottom: 3px;
+      }
+
+      .info-row .icon {
+        color: #1e2faa;
+        font-size: 14px;
+        margin-top: 2px;
+        flex-shrink: 0;
+      }
+
+      .email-link {
+        color: #1e2faa;
+        text-decoration: none;
+        font-size: 13px;
+      }
+      .email-link:hover {
+        text-decoration: underline;
+      }
+
+      .social-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 1rem;
+      }
+
+      .social-btn {
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        font-size: 12px;
+        color: #1e2faa;
+        background: #e8ecf8;
+        border-radius: 20px;
+        padding: 5px 12px;
+        text-decoration: none;
+        transition: background 0.2s;
+      }
+      .social-btn:hover {
+        background: #c8d0f0;
+      }
+
+      .social-icon {
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .footer-right {
+        border-left: 1px solid #e0e0e0;
+        padding-left: 1.5rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .footer-right img {
+        max-width: 160px;
+        max-height: 160px;
+        object-fit: contain;
+      }
+
+      .footer-bottom {
+        max-width: 960px;
+        margin: 1rem auto 0;
+        padding-top: 0.8rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      .footer-bottom a {
+        font-size: 12px;
+        color: rgba(255, 255, 255, 0.85);
+        text-decoration: none;
+      }
+      .footer-bottom a:hover {
+        color: #fff;
+        text-decoration: underline;
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 640px) {
+        .nav-links-list {
+          display: none;
+        }
+        .footer-card {
+          grid-template-columns: 1fr;
+        }
+        .footer-right {
+          border-left: none;
+          border-top: 1px solid #e0e0e0;
+          padding-left: 0;
+          padding-top: 1rem;
+        }
+        .historia-texto {
+          padding: 1.5rem;
+        }
+        .historia-texto p:first-child::first-letter {
+          font-size: 2.8rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ── NAVEGACIÓN ── -->
+    <nav class="navbar-jac">
+      <a href="index.html" class="nav-brand">
+        <img
+          src="img/logo.png"
+          onerror="
+            this.style.background = 'var(--verde-claro)';
+            this.style.borderRadius = '50%';
+          "
+        />
+        <span>Junta de Acción Comunal Vereda la Lomita - San Pablo</span>
+      </a>
+
+      <ul class="nav-links-list">
+        <li>
+          <a href="proyectos_comunitarios.html">Proyectos comunitarios</a>
+        </li>
+        <li>
+          <a href="historia_patrimonio.html" class="activo"
+            >Historia y patrimonio</a
+          >
+        </li>
+        <li>
+          <a href="transparencia_gestion.html">Transparencia y gestión</a>
+        </li>
+        <li>
+          <div class="dropdown-wrap">
+            <button>Veredas aledañas ▾</button>
+            <div class="dropdown-menu-jac">
+              <a href="#">Vereda 1</a>
+              <a href="#">Vereda 2</a>
+              <a href="#">Vereda 3</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- ── HERO ── -->
+    <section class="hero">
+      <span class="hero-tag">Identidad comunitaria</span>
+      <h1>Historia y Patrimonio</h1>
+      <p>
+        Conoce los orígenes, tradiciones y lugares emblemáticos que forman la
+        identidad de nuestra comunidad.
+      </p>
+    </section>
+
+    <!-- ── CONTENIDO PRINCIPAL ── -->
+    <div class="main-wrap">
+      <!-- Imagen destacada -->
+      <div class="img-destacada-wrap">
+        <img
+          src="img/escuela.png"
+          alt="Escuela de la vereda"
+          onerror="
+            this.src =
+              'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1000&q=80'
+          "
+        />
+        <div class="img-caption">
+          Vista principal de la vereda — archivo histórico JAC
+        </div>
+      </div>
+
+      <!-- Historia -->
+      <h2 class="seccion-titulo">Nuestra historia</h2>
+      <div class="historia-texto">
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </p>
+        <p>
+          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+          officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit
+          amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
+          labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <p>
+          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
+          dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est
+          laborum.
+        </p>
+      </div>
+
+      <!-- Patrimonio -->
+      <h2 class="seccion-titulo">Patrimonio cultural</h2>
+      <div class="patrimonio-grid">
+        <!-- Tarjeta 1 — con imagen real -->
+        <div class="pat-card">
+          <img
+            class="pat-card-img"
+            src="https://cdn.aarp.net/content/dam/aarpe/es/home/turismo/internacional/info-2016/fotos-patrimonios-culturales-america-latina/_jcr_content/root/container_main/container_body_main/list_container_body2/container_body_cf/body_two_cf_listicle_twelve/cfimage.coreimg.50.932.jpeg/content/dam/aarp/travel/international/2016/10/1140-ss-unesco-palenque-mexico-ruins-esp.jpg"
+            alt="Patrimonio 1"
+            onerror="
+              this.style.display = 'none';
+              this.nextElementSibling.style.display = 'flex';
+            "
+          />
+          <div class="pat-card-img-placeholder" style="display: none">🏛</div>
+          <div class="pat-card-body">
+            <span class="pat-card-tag">Sitio histórico</span>
+            <h3 class="pat-card-title">Patrimonio 1</h3>
+            <p class="pat-card-desc">
+              Texto descriptivo sobre este lugar o elemento patrimonial de la
+              comunidad.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="pat-card">
+          <div class="pat-card-img-placeholder">🌿</div>
+          <div class="pat-card-body">
+            <span class="pat-card-tag">Naturaleza</span>
+            <h3 class="pat-card-title">Patrimonio 2</h3>
+            <p class="pat-card-desc">
+              Texto descriptivo sobre este lugar o elemento patrimonial de la
+              comunidad.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="pat-card">
+          <div class="pat-card-img-placeholder">🎭</div>
+          <div class="pat-card-body">
+            <span class="pat-card-tag">Cultura</span>
+            <h3 class="pat-card-title">Patrimonio 3</h3>
+            <p class="pat-card-desc">
+              Texto descriptivo sobre este lugar o elemento patrimonial de la
+              comunidad.
+            </p>
+          </div>
+        </div>
+
+        <!-- Tarjeta 4 -->
+        <div class="pat-card">
+          <div class="pat-card-img-placeholder">⛪</div>
+          <div class="pat-card-body">
+            <span class="pat-card-tag">Religioso</span>
+            <h3 class="pat-card-title">Patrimonio 4</h3>
+            <p class="pat-card-desc">
+              Texto descriptivo sobre este lugar o elemento patrimonial de la
+              comunidad.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Botón volver -->
+      <a href="index.html" class="btn-volver">← Volver al inicio</a>
     </div>
+<<<<<<< HEAD
     <!-- Seccion de historia y patrimonio-->
         <!-- Titulo-->
         <h1 id="inicio"style="text-align: center; color: blue;">Historia y Patrimonio</h1>
@@ -125,26 +815,120 @@
                 </div>
             </div>
         </div>
+=======
+    <!-- /main-wrap -->
+>>>>>>> 45ab2f7fed7baaf2e7830031863da54732fdad11
 
-                    </div>
-                </div></div>
+    <!-- ── FOOTER ── -->
+    <footer class="footer-outer">
+      <div class="footer-card">
+        <div class="footer-left">
+          <div class="footer-brand">
+            <div class="brand-icon">🏛</div>
+            <h2>Junta de Acción Comunal Vereda la Lomita - San Pablo</h2>
+          </div>
+          <p class="sede-label">Sede Principal</p>
+          <div class="info-block">
+            <p>Calle 50 #45-67, Ciudad, Departamento – Colombia</p>
+            <p>Código Postal: 050010</p>
+          </div>
+          <div class="info-block">
+            <div class="info-row">
+              <span class="icon">🕐</span>
+              <span>
+                Lun – Jue: 7:00 a.m. – 12:20 p.m. y 1:30 p.m. – 4:30 p.m.<br />
+                Vie: 7:00 a.m. – 12:20 p.m. y 1:30 p.m. – 3:30 p.m.
+              </span>
             </div>
+          </div>
+          <div class="info-block">
+            <div class="info-row">
+              <span class="icon">📞</span><span>+(57) 604 000 0000</span>
+            </div>
+            <div class="info-row">
+              <span class="icon">📞</span
+              ><span>Línea Gratuita: 01 8000 00 0000</span>
+            </div>
+            <div class="info-row">
+              <span class="icon">📞</span
+              ><span>Línea Anticorrupción: +(57) 604 000 0000</span>
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="info-row">
+              <span class="icon">✉</span>
+              <span
+                ><a
+                  href="mailto:contacto@tuorganizacion.gov.co"
+                  class="email-link"
+                  >contacto@tuorganizacion.gov.co</a
+                ></span
+              >
+            </div>
+            <div class="info-row">
+              <span class="icon">✉</span>
+              <span
+                ><a
+                  href="mailto:notificaciones@tuorganizacion.gov.co"
+                  class="email-link"
+                  >notificaciones@tuorganizacion.gov.co</a
+                ></span
+              >
+            </div>
+            <div class="info-row">
+              <span class="icon">🪪</span><span>NIT: 000.000000-0</span>
+            </div>
+          </div>
+          <div class="social-row">
+            <a
+              href="https://facebook.com/tuorganizacion"
+              target="_blank"
+              class="social-btn"
+            >
+              <span class="social-icon" style="color: #1877f2">f</span>
+              @tuorganizacion
+            </a>
+            <a
+              href="https://youtube.com/@tuorg"
+              target="_blank"
+              class="social-btn"
+            >
+              <span class="social-icon" style="color: #ff0000">▶</span>
+              @tuorg_yt
+            </a>
+            <a href="https://x.com/tuorg" target="_blank" class="social-btn">
+              <span class="social-icon" style="color: #000">✕</span>
+              @tuorg_x
+            </a>
+            <a
+              href="https://instagram.com/tuorganizacion"
+              target="_blank"
+              class="social-btn"
+            >
+              <span class="social-icon" style="color: #e1306c">◉</span>
+              @tuorganizacion_ig
+            </a>
+          </div>
         </div>
-
-    <a href="index.html">Volver al inicio</a>
-</body>
-<!-- Footer -->
-<div class="container">
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <p class="col-md-4 mb-0 text-body-secondary">© 2026 Todos los derechos reservados</p> <a href="/"
-            class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
-            aria-label="Bootstrap"> <svg class="bi me-2" width="40" height="32" aria-hidden="true">
-                <use xlink:href="#bootstrap"></use>
-            </svg> </a>
-        <ul class="nav col-md-4 justify-content-end">
-            <li class="nav-item"><a href="#inicio" class="nav-link px-2 text-body-secondary">Volver al inicio</a></li>
-            <li class="nav-item"><a href="contacto.html" class="nav-link px-2 text-body-secondary">Contacto</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-body-secondary">En construcción</a></li>
-        </ul>
+        <div class="footer-right">
+          <img
+            src="img/logo.png"
+            alt="Logo Junta de Acción Comunal Vereda la Lomita - San Pablo"
+          />
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <a href="#">Mapa del Sitio</a>
+        <a href="#">Políticas</a>
+        <a href="#">Mecanismos de Contacto</a>
+        <a href="#">Estadísticas</a>
+      </div>
     </footer>
-</div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
