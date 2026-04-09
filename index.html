@@ -2,604 +2,693 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Junta de Acción Comunal La Lomita</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <style>
-      /* ── Variables ── */
-      :root {
-        --verde: #13713f;
-        --verde-claro: #e8f5ee;
-        --verde-medio: #2d9e60;
-        --gris-bg: #f4f3ef;
-        --gris-borde: #ddd8ce;
-        --texto: #1c1c1a;
-        --texto-suave: #5c5b56;
-        --blanco: #ffffff;
-        --radio: 14px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Junta de Acción Comunal La Lomita</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:wght@400;600;700&family=DM+Sans:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <style>
+    /* ── Variables ── */
+    :root {
+      --verde: #13713f;
+      --verde-claro: #e8f5ee;
+      --verde-medio: #2d9e60;
+      --gris-bg: #f4f3ef;
+      --gris-borde: #ddd8ce;
+      --texto: #1c1c1a;
+      --texto-suave: #5c5b56;
+      --blanco: #ffffff;
+      --radio: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* ── NAV ── */
+    .navbar-jac {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--blanco);
+      border-bottom: 1px solid var(--gris-borde);
+      padding: 0 2rem;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      animation: fadeIn 0.5s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
       }
 
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
+    }
 
-      body {
-        font-family: 'Segoe UI', sans-serif;
-      }
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
 
-      /* ── NAV ── */
-      .navbar-jac {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        background: var(--blanco);
-        border-bottom: 1px solid var(--gris-borde);
-        padding: 0 2rem;
-        height: 80px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1rem;
-        animation: fadeIn 0.5s ease;
-      }
+    .nav-brand img {
+      width: 40px;
+      height: 40px;
+      object-fit: contain;
+    }
 
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
+    .nav-brand span {
+      font-size: 20px;
+      font-weight: 500;
+      color: black;
+    }
 
-      .nav-brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        text-decoration: none;
-      }
+    .nav-links-list {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      list-style: none;
+    }
 
-      .nav-brand img {
-        width: 40px;
-        height: 40px;
-        object-fit: contain;
-      }
+    .nav-links-list a,
+    .nav-links-list button {
+      font-family: "DM Sans", sans-serif;
+      font-size: 20px;
+      font-weight: 500;
+      color: var(--texto-suave);
+      text-decoration: none;
+      padding: 7px 14px;
+      border-radius: 8px;
+      border: none;
+      background: none;
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
 
-      .nav-brand span {
-        font-size: 20px;
-        font-weight: 500;
-        color: black;
-      }
+    .nav-links-list a:hover,
+    .nav-links-list button:hover {
+      background: var(--verde-claro);
+      color: var(--verde);
+    }
 
-      .nav-links-list {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        list-style: none;
-      }
+    .nav-links-list a.activo {
+      background: var(--verde-claro);
+      color: var(--verde);
+      font-weight: 500;
+    }
 
-      .nav-links-list a,
-      .nav-links-list button {
-        font-family: "DM Sans", sans-serif;
-        font-size: 20px;
-        font-weight: 500;
-        color: var(--texto-suave);
-        text-decoration: none;
-        padding: 7px 14px;
-        border-radius: 8px;
-        border: none;
-        background: none;
-        cursor: pointer;
-        transition: background 0.15s, color 0.15s;
-      }
+    .dropdown-wrap {
+      position: relative;
+    }
 
-      .nav-links-list a:hover,
-      .nav-links-list button:hover {
-        background: var(--verde-claro);
-        color: var(--verde);
-      }
+    .dropdown-menu-jac {
+      display: none;
+      position: absolute;
+      top: calc(100% + 6px);
+      right: 0;
+      background: var(--blanco);
+      border: 1px solid var(--gris-borde);
+      border-radius: var(--radio);
+      min-width: 160px;
+      overflow: hidden;
+      z-index: 200;
+    }
 
-      .nav-links-list a.activo {
-        background: var(--verde-claro);
-        color: var(--verde);
-        font-weight: 500;
-      }
+    .dropdown-wrap:hover .dropdown-menu-jac,
+    .dropdown-wrap:focus-within .dropdown-menu-jac {
+      display: block;
+    }
 
-      .dropdown-wrap {
-        position: relative;
-      }
+    .dropdown-menu-jac a {
+      display: block;
+      padding: 9px 16px;
+      font-size: 13px;
+      color: var(--texto-suave);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
 
-      .dropdown-menu-jac {
-        display: none;
-        position: absolute;
-        top: calc(100% + 6px);
-        right: 0;
-        background: var(--blanco);
-        border: 1px solid var(--gris-borde);
-        border-radius: var(--radio);
-        min-width: 160px;
-        overflow: hidden;
-        z-index: 200;
-      }
+    .dropdown-menu-jac a:hover {
+      background: var(--verde-claro);
+      color: var(--verde);
+    }
 
-      .dropdown-wrap:hover .dropdown-menu-jac,
-      .dropdown-wrap:focus-within .dropdown-menu-jac {
-        display: block;
-      }
-
-      .dropdown-menu-jac a {
-        display: block;
-        padding: 9px 16px;
-        font-size: 13px;
-        color: var(--texto-suave);
-        text-decoration: none;
-        transition: background 0.15s;
-      }
-
-      .dropdown-menu-jac a:hover {
-        background: var(--verde-claro);
-        color: var(--verde);
-      }
-
-      /* =====================
+    /* =====================
          FOOTER
       ===================== */
-      .footer-outer {
-        background: #13713f;
-        padding: 2.5rem 1.5rem 1.5rem;
-      }
+    .footer-outer {
+      background: #13713f;
+      padding: 2.5rem 1.5rem 1.5rem;
+    }
 
+    .footer-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 2rem 2.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 220px;
+      gap: 2rem;
+    }
+
+    /* --- Marca / Título --- */
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 1.2rem;
+    }
+
+    .brand-icon {
+      width: 44px;
+      height: 44px;
+      background: #1e2faa;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: white;
+    }
+
+    .footer-brand h2 {
+      font-size: 20px;
+      font-weight: 600;
+      color: #1e2faa;
+    }
+
+    /* --- Info bloques --- */
+    .sede-label {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1e2faa;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.04em;
+    }
+
+    .info-block {
+      margin-bottom: 1rem;
+    }
+
+    .info-block p {
+      font-size: 13px;
+      color: #444;
+      line-height: 1.7;
+    }
+
+    .info-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
+      font-size: 13px;
+      color: #444;
+      margin-bottom: 3px;
+    }
+
+    .info-row .icon {
+      color: #1e2faa;
+      font-size: 14px;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+
+    .email-link {
+      color: #1e2faa;
+      text-decoration: none;
+      font-size: 13px;
+    }
+
+    .email-link:hover {
+      text-decoration: underline;
+    }
+
+    /* --- Redes sociales --- */
+    .social-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 1rem;
+    }
+
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      color: #1e2faa;
+      background: #e8ecf8;
+      border-radius: 20px;
+      padding: 5px 12px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .social-btn:hover {
+      background: #c8d0f0;
+    }
+
+    .social-icon {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    /* --- Logo derecha --- */
+    .footer-right {
+      border-left: 1px solid #e0e0e0;
+      padding-left: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .footer-right img {
+      max-width: 160px;
+      max-height: 160px;
+      object-fit: contain;
+    }
+
+    /* --- Barra inferior --- */
+    .footer-bottom {
+      max-width: 960px;
+      margin: 1rem auto 0;
+      padding-top: 0.8rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .footer-bottom a {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.85);
+      text-decoration: none;
+    }
+
+    .footer-bottom a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    /* --- Responsive --- */
+    @media (max-width: 640px) {
       .footer-card {
-        background: #ffffff;
-        border-radius: 14px;
-        padding: 2rem 2.5rem;
-        max-width: 960px;
-        margin: 0 auto;
-        display: grid;
-        grid-template-columns: 1fr 220px;
-        gap: 2rem;
+        grid-template-columns: 1fr;
       }
 
-      /* --- Marca / Título --- */
-      .footer-brand {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        margin-bottom: 1.2rem;
-      }
-
-      .brand-icon {
-        width: 44px;
-        height: 44px;
-        background: #1e2faa;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        color: white;
-      }
-
-      .footer-brand h2 {
-        font-size: 20px;
-        font-weight: 600;
-        color: #1e2faa;
-      }
-
-      /* --- Info bloques --- */
-      .sede-label {
-        font-size: 13px;
-        font-weight: 600;
-        color: #1e2faa;
-        margin-bottom: 0.5rem;
-        letter-spacing: 0.04em;
-      }
-
-      .info-block {
-        margin-bottom: 1rem;
-      }
-
-      .info-block p {
-        font-size: 13px;
-        color: #444;
-        line-height: 1.7;
-      }
-
-      .info-row {
-        display: flex;
-        align-items: flex-start;
-        gap: 6px;
-        font-size: 13px;
-        color: #444;
-        margin-bottom: 3px;
-      }
-
-      .info-row .icon {
-        color: #1e2faa;
-        font-size: 14px;
-        margin-top: 2px;
-        flex-shrink: 0;
-      }
-
-      .email-link {
-        color: #1e2faa;
-        text-decoration: none;
-        font-size: 13px;
-      }
-      .email-link:hover { text-decoration: underline; }
-
-      /* --- Redes sociales --- */
-      .social-row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-        margin-top: 1rem;
-      }
-
-      .social-btn {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        font-size: 12px;
-        color: #1e2faa;
-        background: #e8ecf8;
-        border-radius: 20px;
-        padding: 5px 12px;
-        text-decoration: none;
-        transition: background 0.2s;
-      }
-      .social-btn:hover { background: #c8d0f0; }
-
-      .social-icon {
-        font-size: 13px;
-        font-weight: 700;
-      }
-
-      /* --- Logo derecha --- */
       .footer-right {
-        border-left: 1px solid #e0e0e0;
-        padding-left: 1.5rem;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        border-left: none;
+        border-top: 1px solid #e0e0e0;
+        padding-left: 0;
+        padding-top: 1rem;
       }
-
-      .footer-right img {
-        max-width: 160px;
-        max-height: 160px;
-        object-fit: contain;
-      }
-
-      /* --- Barra inferior --- */
-      .footer-bottom {
-        max-width: 960px;
-        margin: 1rem auto 0;
-        padding-top: 0.8rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.2);
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        justify-content: center;
-      }
-
-      .footer-bottom a {
-        font-size: 12px;
-        color: rgba(255, 255, 255, 0.85);
-        text-decoration: none;
-      }
-      .footer-bottom a:hover {
-        color: #fff;
-        text-decoration: underline;
-      }
-
-      /* --- Responsive --- */
-      @media (max-width: 640px) {
-        .footer-card {
-          grid-template-columns: 1fr;
-        }
-        .footer-right {
-          border-left: none;
-          border-top: 1px solid #e0e0e0;
-          padding-left: 0;
-          padding-top: 1rem;
-        }
-      }
-    </style>
+    }
+  </style>
 </head>
 
 <body style="font-size: 16px;">
-    <!-- Scripts para funciones de Bootstrap, ww3School, etc -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
-        crossorigin="anonymous"></script>
-    <!-- Barra de navegación -->
-    <nav class="navbar-jac">
-      <a href="index.html" class="nav-brand">
-        <img src="img/logo.png" onerror="this.style.background = 'var(--verde-claro)'; this.style.borderRadius = '50%';" />
-        <span>Junta de Acción Comunal Vereda la Lomita - San Pablo</span>
-      </a>
+  <!-- Scripts para funciones de Bootstrap, ww3School, etc -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+  <!-- Barra de navegación -->
+  <!--Información sobre veredas (No tocar)-->
+  <div class="modal fade" id="vereda1" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
 
-      <ul class="nav-links-list">
-        <li>
-          <a href="proyectos_comunitarios.html">Proyectos comunitarios</a>
-        </li>
-        <li>
-          <a href="historia_patrimonio.html">Historia y patrimonio</a>
-        </li>
-        <li>
-          <a href="transparencia_gestion.html">Transparencia y gestión</a>
-        </li>
-        <li>
-          <div class="dropdown-wrap">
-            <button>Veredas aledañas ▾</button>
-            <div class="dropdown-menu-jac">
-              <a href="#">Vereda 1</a>
-              <a href="#">Vereda 2</a>
-              <a href="#">Vereda 3</a>
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">Vereda La Clara-Santa Rosa</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <div class="modal-body">
+          <img src="img/imagen la clara.jpg" class="img-fluid mb-3" alt="Imagen de la vereda">
+          <p>Vereda La Clara-Santa Rosa es una aldea en Antioquia, Región Andina. Vereda La Clara-Santa Rosa se
+            encuentra cerca de la localidad de Karelia, así como de Caserío La Clara-Santa Rosa.</p>
+          <br>
+          <p>Es reconocida por su cascada y por ser el limite del corregimiento de San Pablo.</p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="vereda2" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">Vereda El Caney</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <div class="modal-body">
+          <img src="img/imagen el caney.jpg" class="img-fluid mb-3" alt="Imagen de la vereda">
+          <p>La vereda El Caney, ubicada en el suroriente de Santa Rosa de Osos, Antioquia, es una zona de clima cálido
+            (aprox. 22°C - 30°C) asentada en la llanura aluvial del río Grande. Históricamente, su nombre proviene de
+            los "caneyes", construcciones usadas para secar tabaco por habitantes de origen africano. Es una zona con
+            alto potencial agrícola y de recreo, pero propensa a inundaciones.</p>
+          <br>
+          <p>Históricamente relacionada con el cultivo de tabaco. Actualmente, destaca por fincas cafeteras, trapiches
+            paneleros y viveros.</p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="vereda3" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">Vereda La Pava Salamina</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <div class="modal-body">
+          <img src="img/imagen la pava.jpg" class="img-fluid mb-3" alt="Imagen de la vereda">
+          <p>Situada en el municipio de Santa Rosa de Osos, Antioquia, es una zona rural destacada por su asociación
+            de acueducto local. Esta vereda, a menudo mencionada junto con Salamina, se beneficia de iniciativas de
+            desarrollo comunitario y ambiental, incluyendo jornadas de siembra de árboles lideradas por la Universidad
+            de Antioquia.</p>
+          <br>
+          <p>Cuenta con una asociación de suscriptores privada y sin ánimo de lucro que garantiza el agua potable, el
+            Acueducto Vereda Salamina – Pava.</p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <!--Fin Información sobre veredas (No tocar)-->
+
+  <nav class="navbar-jac">
+    <a href="index.html" class="nav-brand">
+      <img src="img/logo.png"
+        onerror="this.style.background = 'var(--verde-claro)'; this.style.borderRadius = '50%';" />
+      <span>Junta de Acción Comunal La Lomita</span>
+    </a>
+
+    <ul class="nav-links-list" class="d-flex justify-content-center align-items-center">
+      <li>
+        <a href="proyectos_comunitarios.html">Proyectos comunitarios</a>
+      </li>
+      <li>
+        <a href="historia_patrimonio.html">Historia y patrimonio</a>
+      </li>
+      <li>
+        <a href="transparencia_gestion.html">Transparencia y gestión</a>
+      </li>
+      <li>
+
+        <div class="dropdown-wrap">
+          <button>Veredas aledañas ▾</button>
+          <div class="dropdown-menu-jac">
+            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#vereda1">
+              Vereda La Clara
+            </a>
+
+            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#vereda2">
+              Vereda El Caney
+            </a>
+            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#vereda3">
+              Vereda La Pava Salamina
+            </a>
+
+
+          </div>
+      </li>
+    </ul>
+  </nav>
+  <!-- imagen principal-->
+  <img height="200px" src="img/Vista_de_La_Vereda.jpg" class="img-fluid" alt="Insertar imagen de la vereda" id="inicio">
+  <!-- Texto bajo esa imagen-->
+  <div class="p-4 p-md-3 mb-6 rounded text-body-emphasis bg-dark-subtle">
+    <div class="col-lg-8 px-0">
+      <h1 class="display-1">La Lomita</h1>
+      <p class="lead my-3">Ubicada en el corazón del norte antioqueño, La Lomita es un territorio donde la historia, la
+        cultura y el desarrollo comunitario se unen para ofrecer una experiencia auténtica y llena de identidad.</p>
+    </div>
+  </div>
+
+  <br>
+  <!-- Carrusel de imágenes de las noticias -->
+
+  <div class="container-fluid">
+    <div class="row col-13" style="background-color: #13713f;; border-radius: 8px; padding: 10px;">
+      <div class="col-6">
+        <!-- Titulo-->
+        <h2 style="text-align: center;">Ultimas Noticias</h2>
+        <div id="carouselExampleDark" class="carousel carousel-dark slide">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
+              aria-current="true" aria-label="Slide 1"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
+              aria-label="Slide 2"></button>
+            <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
+              aria-label="Slide 3"></button>
+          </div>
+          <div class="carousel-inner">
+            <div class="carousel-item active" data-bs-interval="10000">
+              <img src="img/WhatsApp Image 2026-03-15 at 4.32.16 PM.jpeg" class="d-block w-100" alt="la lomita iconos">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Historia</h5>
+                <p>Breve historia sobre la lomita</p>
+              </div>
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="https://somosiberoamerica.org/wp-content/uploads/2022/09/Onda-Pais-Imagen-destacada.jpg"
+                class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5 style="color: white;">Cultura y comunidad</h5>
+                <p style="color: white;">Some representative placeholder content for the second slide.</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img src="..." class="d-block w-100" alt="...">
+              <div class="carousel-caption d-none d-md-block">
+                <h5>Third slide label</h5>
+                <p>Some representative placeholder content for the third slide.</p>
+              </div>
             </div>
           </div>
-        </li>
-      </ul>
-    </nav>
-    <!-- imagen principal-->
-    <img height="200px" src="img/Vista_de_La_Vereda.jpg" class="img-fluid" alt="Insertar imagen de la vereda"
-        id="inicio">
-    <!-- Texto bajo esa imagen-->
-    <div class="p-4 p-md-3 mb-6 rounded text-body-emphasis bg-dark-subtle">
-        <div class="col-lg-6 px-0">
-            <h1 class="display-1">La Lomita</h1>
-            <p class="lead my-3">Pagina principal de la vereda la lomita</p>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+          <br>
         </div>
+      </div>
+
+      <!-- Texto al lado del carrusel de noticias-->
+      <div class="col-6">
+        <h2 style="text-align: center;">Sobre la página</h2>
+        <p>La Lomita hace parte del corregimiento de San Pablo, un territorio con raíces históricas profundas que datan
+          del siglo XIX. Su riqueza cultural, sumada a su herencia indígena y su vocación agrícola, la convierten en un
+          lugar único dentro de Santa Rosa de Osos.</p>
+
+
+      </div>
     </div>
 
-    <br>
-    <!-- Carrusel de imágenes de las noticias -->
-    <div class="container-fluid">
-        <div class="row col-12">
-            <div class="col-6">
-                <!-- Titulo-->
-                <h2 style="text-align: center;">Ultimas Noticias</h2>
-                <div id="carouselExampleDark" class="carousel carousel-dark slide">
-                    <div class="carousel-indicators">
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-                            aria-current="true" aria-label="Slide 1"></button>
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1"
-                            aria-label="Slide 2"></button>
-                        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
-                            aria-label="Slide 3"></button>
-                    </div>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active" data-bs-interval="10000">
-                            <img src="img/WhatsApp Image 2026-03-15 at 4.32.16 PM.jpeg" class="d-block w-100"
-                                alt="la lomita iconos">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Historia</h5>
-                                <p>Breve historia sobre la lomita</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item" data-bs-interval="2000">
-                            <img src="https://somosiberoamerica.org/wp-content/uploads/2022/09/Onda-Pais-Imagen-destacada.jpg"
-                                class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5 style="color: white;">Cultura y comunidad</h5>
-                                <p style="color: white;">Some representative placeholder content for the second slide.</p>
-                            </div>
-                        </div>
-                        <div class="carousel-item">
-                            <img src="..." class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Third slide label</h5>
-                                <p>Some representative placeholder content for the third slide.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark"
-                        data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark"
-                        data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
-                </div>
-            </div>
-
-        <!-- Texto al lado del carrusel de noticias-->
-        <div class="col-6">
-            <h2 style="text-align: center;">Sobre la página</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-                culpa qui officia deserunt mollit anim id est laborum.<br>Lorem ipsum dolor sit amet, consectetur
-                adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-                veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-                Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-                voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum..</p>
-            <p>Únete a nosotros en nuestras próximas actividades y sé parte del cambio positivo en La Lomita.
-                Juntos, podemos construir un futuro mejor para todos.</p>
-        </div>
-    </div>
 
     <!-- Sección Cultura y comunidad-->
     <br><br><br>
     <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="row col-10">
-                <h1 style="text-align: center;">Cultura y comunidad</h1>
-                <p>epsilum voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>epsilum voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <p>epsilum voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                    cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <!-- parrafo con imagen-->
-                <div class="row col-6">
-                    <img src="https://somosiberoamerica.org/wp-content/uploads/2022/09/Onda-Pais-Imagen-destacada.jpg"
-                        class="d-block w-100" alt="...">
-                </div>
-                <div class="row col-6">
-                    <p>epsilum voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-                        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                        cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                </div>
-            </div>
+      <div class="row justify-content-center">
+        <div class="row col-10">
+          <h1 style="text-align: center;">Cultura y comunidad</h1>
+          <p>epsilum voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>epsilum voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p>epsilum voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <!-- parrafo con imagen-->
+          <div class="row col-6">
+            <img src="https://somosiberoamerica.org/wp-content/uploads/2022/09/Onda-Pais-Imagen-destacada.jpg"
+              class="d-block w-100" alt="...">
+          </div>
+          <div class="row col-6">
+            <p>epsilum voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+              voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </div>
         </div>
+      </div>
+    </div>
+
+    <!-- Seccioón ubicación-->
+    <div class="container-fluid">
+      <div class="row justify-content-center">
+        <div class="row col-10">
+          <h2 style="text-align: center;">Ubicación</h2>
+          <div class="card" style="background-color: #13713f;">
+            <div class="card-body" style="background-color: #13713f; border-radius: 8px; color: white;">
+
+              <p>La Lomita se encuentra en el corregimiento de San Pablo, al norte del municipio de Santa Rosa de Osos,
+                en
+                el departamento de Antioquia, Colombia. Esta ubicación estratégica le permite ser un punto de encuentro
+                entre
+                la riqueza natural y la historia cultural del norte antioqueño. con fácil acceso desde Medellín gracias
+                a la
+                vía 4G, lo que permite llegar en aproximadamente 1 hora y 30 minutos.</p>
+            </div>
+            <img src="img/mapa_vereda.jpg" class="card-img-bottom" alt="Mapa vereda la lomita" width="500px"
+              style="border-top-left-radius: 8px; border-top-right-radius: 8px;">
+            <br>
+          </div>
+        </div>
+      </div>
     </div>
     <br><br><br>
-    <!-- Seccion de proyectos comunitarios-->
-    <div class="container-fluid">
-        <div class="row justify-content-center">
-            <div class="row col-10">
-                <h1 style="text-align: center;">Proyectos comunitarios</h1>
-                <!-- Navecacion de contenido-->
-                <div class="row">
-                    <div class="col-4">
-                        <div id="simple-list-example"
-                            class="d-flex flex-column gap-2 simple-list-example-scrollspy text-center">
-                            <a class="p-1 rounded" href="#simple-list-item-1">Item 1</a>
-                            <a class="p-1 rounded" href="#simple-list-item-2">Item 2</a>
-                            <a class="p-1 rounded" href="#simple-list-item-3">Item 3</a>
-                            <a class="p-1 rounded" href="#simple-list-item-4">Item 4</a>
-                            <a class="p-1 rounded" href="#simple-list-item-5">Item 5</a>
-                        </div>
-                    </div>
-                    <div class="col-8">
-                        <div data-bs-spy="scroll" data-bs-target="#simple-list-example" data-bs-offset="0"
-                            data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
-                            <h4 id="simple-list-item-1">Item 1</h4>
-                            <p>...</p>
-                            <h4 id="simple-list-item-2">Item 2</h4>
-                            <p>...</p>
-                            <h4 id="simple-list-item-3">Item 3</h4>
-                            <p>...</p>
-                            <h4 id="simple-list-item-4">Item 4</h4>
-                            <p>...</p>
-                            <h4 id="simple-list-item-5">Item 5</h4>
-                            <p>...</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
 
 
-  <!-- ==========================================
+    <!-- ==========================================
        FOOTER 
        ========================================== -->
-  <footer class="footer-outer">
-    <div class="footer-card">
+    <footer class="footer-outer">
+      <div class="footer-card">
 
-      <!-- Columna izquierda: información de contacto -->
-      <div class="footer-left">
+        <!-- Columna izquierda: información de contacto -->
+        <div class="footer-left">
 
-        <div class="footer-brand">
-          <div class="brand-icon">🏛</div>
-          <!-- nombre de la organización -->
-          <h2>Junta de Acción Comunal Vereda la Lomita - San Pablo</h2>
-        </div>
-
-        <p class="sede-label">Sede Principal</p>
-
-        <div class="info-block">
-          <!-- Cambia dirección y código postal -->
-          <p>Calle 50 #45-67, Ciudad, Departamento – Colombia</p>
-          <p>Código Postal: 050010</p>
-        </div>
-
-        <div class="info-block">
-          <div class="info-row">
-            <span class="icon">🕐</span>
-            <!-- Cambia los horarios -->
-            <span>
-              Lun – Jue: 7:00 a.m. – 12:20 p.m. y 1:30 p.m. – 4:30 p.m.<br>
-              Vie: 7:00 a.m. – 12:20 p.m. y 1:30 p.m. – 3:30 p.m.
-            </span>
+          <div class="footer-brand">
+            <div class="brand-icon">🏛</div>
+            <!-- nombre de la organización -->
+            <h2>Junta de Acción Comunal Vereda la Lomita - San Pablo</h2>
           </div>
-        </div>
 
-        <div class="info-block">
-          <!-- Cambia los teléfonos -->
-          <div class="info-row"><span class="icon">📞</span><span>+(57) 604 000 0000</span></div>
-          <div class="info-row"><span class="icon">📞</span><span>Línea Gratuita: 01 8000 00 0000</span></div>
-          <div class="info-row"><span class="icon">📞</span><span>Línea Anticorrupción: +(57) 604 000 0000</span></div>
-        </div>
+          <p class="sede-label">Sede Principal</p>
 
-        <div class="info-block">
-          <!-- Cambia los correos y NIT -->
-          <div class="info-row">
-            <span class="icon">✉</span>
-            <span><a href="mailto:contacto@tuorganizacion.gov.co" class="email-link">contacto@tuorganizacion.gov.co</a></span>
+          <div class="info-block">
+            <!-- Cambia dirección y código postal -->
+            <p>Calle 50 #45-67, Ciudad, Departamento – Colombia</p>
+            <p>Código Postal: 050010</p>
           </div>
-          <div class="info-row">
-            <span class="icon">✉</span>
-            <span><a href="mailto:notificaciones@tuorganizacion.gov.co" class="email-link">notificaciones@tuorganizacion.gov.co</a></span>
+
+          <div class="info-block">
+            <div class="info-row">
+              <span class="icon">🕐</span>
+              <!-- Cambia los horarios -->
+              <span>
+                Lun – Jue: 7:00 a.m. – 12:20 p.m. y 1:30 p.m. – 4:30 p.m.<br>
+                Vie: 7:00 a.m. – 12:20 p.m. y 1:30 p.m. – 3:30 p.m.
+              </span>
+            </div>
           </div>
-          <div class="info-row"><span class="icon">🪪</span><span>NIT: 000.000000-0</span></div>
+
+          <div class="info-block">
+            <!-- Cambia los teléfonos -->
+            <div class="info-row"><span class="icon">📞</span><span>+(57) 604 000 0000</span></div>
+            <div class="info-row"><span class="icon">📞</span><span>Línea Gratuita: 01 8000 00 0000</span></div>
+            <div class="info-row"><span class="icon">📞</span><span>Línea Anticorrupción: +(57) 604 000
+                0000</span>
+            </div>
+          </div>
+
+          <div class="info-block">
+            <!-- Cambia los correos y NIT -->
+            <div class="info-row">
+              <span class="icon">✉</span>
+              <span><a href="mailto:contacto@tuorganizacion.gov.co"
+                  class="email-link">contacto@tuorganizacion.gov.co</a></span>
+            </div>
+            <div class="info-row">
+              <span class="icon">✉</span>
+              <span><a href="mailto:notificaciones@tuorganizacion.gov.co"
+                  class="email-link">notificaciones@tuorganizacion.gov.co</a></span>
+            </div>
+            <div class="info-row"><span class="icon">🪪</span><span>NIT: 000.000000-0</span></div>
+          </div>
+
+          <!-- Redes sociales — cambia href y etiquetas -->
+          <div class="social-row">
+            <a href="https://facebook.com/tuorganizacion" target="_blank" class="social-btn">
+              <span class="social-icon" style="color:#1877f2">f</span>
+              @tuorganizacion
+            </a>
+            <a href="https://youtube.com/@tuorg" target="_blank" class="social-btn">
+              <span class="social-icon" style="color:#ff0000">▶</span>
+              @tuorg_yt
+            </a>
+            <a href="https://x.com/tuorg" target="_blank" class="social-btn">
+              <span class="social-icon" style="color:#000">✕</span>
+              @tuorg_x
+            </a>
+            <a href="https://instagram.com/tuorganizacion" target="_blank" class="social-btn">
+              <span class="social-icon" style="color:#e1306c">◉</span>
+              @tuorganizacion_ig
+            </a>
+          </div>
+
         </div>
 
-        <!-- Redes sociales — cambia href y etiquetas -->
-        <div class="social-row">
-          <a href="https://facebook.com/tuorganizacion" target="_blank" class="social-btn">
-            <span class="social-icon" style="color:#1877f2">f</span>
-            @tuorganizacion
-          </a>
-          <a href="https://youtube.com/@tuorg" target="_blank" class="social-btn">
-            <span class="social-icon" style="color:#ff0000">▶</span>
-            @tuorg_yt
-          </a>
-          <a href="https://x.com/tuorg" target="_blank" class="social-btn">
-            <span class="social-icon" style="color:#000">✕</span>
-            @tuorg_x
-          </a>
-          <a href="https://instagram.com/tuorganizacion" target="_blank" class="social-btn">
-            <span class="social-icon" style="color:#e1306c">◉</span>
-            @tuorganizacion_ig
-          </a>
-        </div>
-
-      </div>
-
-      <!-- Columna derecha: logo de la institución -->
-      <div class="footer-right">
-        <!--
+        <!-- Columna derecha: logo de la institución -->
+        <div class="footer-right">
+          <!--
           Reemplaza "img/logo.png" con la ruta real de tu logo.
           Ejemplo: src="assets/logo.png" o src="images/logo-institucional.svg"
         -->
-        <img src="img/logo.png" alt="Logo Junta de Acción Comunal Vereda la Lomita - San Pablo">
+          <img src="img/logo.png" alt="Logo Junta de Acción Comunal Vereda la Lomita - San Pablo">
+        </div>
+
       </div>
 
-    </div>
+      <!-- Barra inferior de enlaces — cambia href y textos -->
+      <div class="footer-bottom">
+        <a href="#">Mapa del Sitio</a>
+        <a href="#">Políticas</a>
+        <a href="#">Mecanismos de Contacto</a>
+        <a href="#">Estadísticas</a>
+      </div>
 
-    <!-- Barra inferior de enlaces — cambia href y textos -->
-    <div class="footer-bottom">
-      <a href="#">Mapa del Sitio</a>
-      <a href="#">Políticas</a>
-      <a href="#">Mecanismos de Contacto</a>
-      <a href="#">Estadísticas</a>
-    </div>
-
-  </footer>
-  <!-- FIN FOOTER -->
+    </footer>
+    <!-- FIN FOOTER -->
 
 </body>
 
