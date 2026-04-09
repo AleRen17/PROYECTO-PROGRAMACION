@@ -1,4 +1,5 @@
-/* ── Variables ── */
+
+/* ── Variables (cualquier modificación en el frontend como en el tamaño de los elementos o el tipo de letra debe hacerse aqui) ── */
 :root {
   --verde: #13713f;
   --verde-claro: #e8f5ee;

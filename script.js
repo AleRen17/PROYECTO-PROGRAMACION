@@ -1,4 +1,5 @@
-// ── JAVASCRIPT: FILTROS PARA PROYECTOS ──
+
+// ── JAVASCRIPT: FILTROS PARA PROYECTOS (no tocar) ──
 const botones = document.querySelectorAll(".filtro-btn");
 const tarjetas = document.querySelectorAll(".card");
 const sinRes = document.getElementById("sin-resultados");
