@@ -11,7 +11,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="styles.css">
-  </head>
+</head>
 
 <body class="body-index">
   <!-- Scripts para funciones de Bootstrap, ww3School, etc -->
@@ -25,7 +25,7 @@
       <div class="modal-content">
 
         <div class="modal-header">
-          <h5 class="modal-title" id="modalLabel">Vereda La Clara-Santa Rosa</h5>
+          <h5 class="modal-title" id="modalLabel">Vereda La Clara</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
         </div>
 
@@ -102,6 +102,33 @@
   </div>
 
   </div>
+
+
+
+  <div class="modal fade" id="vereda4" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">Vereda El Chilimaco</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <div class="modal-body">
+          <img src="img/imagen chilimaco.jpg" class="img-fluid mb-3" alt="Imagen de la vereda">
+          <p>Es una zona rural ubicada principalmente en el corregimiento San Pablo del municipio de Santa Rosa de Osos, en el norte de Antioquia. Es reconocida por sus paisajes montañosos, cafetales, la proximidad al Cañón del Porce y por ser una ruta destacada para el senderismo y ciclismo de montaña. </p>
+          <br>
+          <p>Es popular entre senderistas (ruta desde la antigua fonda de Chilimaco hacia la quebrada La Morena) y ciclistas.</p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
   <!--Fin Información sobre veredas (No tocar)-->
 
   <nav class="navbar-jac">
@@ -136,6 +163,9 @@
             <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#vereda3">
               Vereda La Pava Salamina
             </a>
+            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#vereda4">
+              Vereda El Chilimaco 
+            </a>
 
 
           </div>
@@ -160,7 +190,7 @@
     <div class="row col-13 carrusel-verde">
       <div class="col-6">
         <!-- Titulo-->
-        <h2 class="text-center">Ultimas Noticias</h2>
+        <h2 class="text-center" style="color: white;">Ultimas Noticias</h2>
         <div id="carouselExampleDark" class="carousel carousel-dark slide">
           <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
@@ -170,27 +200,34 @@
             <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2"
               aria-label="Slide 3"></button>
           </div>
-          <div class="carousel-inner">
+          <div class="carousel-inner" style="border-radius: 12px;">
             <div class="carousel-item active" data-bs-interval="10000">
-              <img src="img/WhatsApp Image 2026-03-15 at 4.32.16 PM.jpeg" class="d-block w-100" alt="la lomita iconos">
+              <img src="img/Via/Mejora de la via.jpeg" class="d-block w-100" alt="la lomita iconos"
+                style="border-radius: 12px;">
               <div class="carousel-caption d-none d-md-block">
-                <h5>Historia</h5>
-                <p>Breve historia sobre la lomita</p>
+                <h5 style="color: white;">Mejoras en la vía</h5>
+                <a href="noticia1.html" style="color: white;">
+                  <p class="white-text">Ver más información</p>
+                </a>
               </div>
             </div>
             <div class="carousel-item" data-bs-interval="2000">
-              <img src="https://somosiberoamerica.org/wp-content/uploads/2022/09/Onda-Pais-Imagen-destacada.jpg"
-                class="d-block w-100" alt="...">
+              <img src="img/Mejoras del Acueducto/Acueducto p1.jpeg" class="d-block w-100"
+                alt="Imagen noticia acueducto" style="border-radius: 12px;">
               <div class="carousel-caption d-none d-md-block">
-                <h5 class="white-text">Cultura y comunidad</h5>
-                <p class="white-text">Some representative placeholder content for the second slide.</p>
+                <h5 class="white-text">Reestructuración del acueducto</h5>
+                <a href="noticia2.html" style="color: white;">
+                  <p class="white-text">Ver más información</p>
+                </a>
               </div>
             </div>
             <div class="carousel-item">
-              <img src="..." class="d-block w-100" alt="...">
+              <img src="img/Escuelas y ruta/imagen_escuela.jpeg" class="d-block w-100" alt="...">
               <div class="carousel-caption d-none d-md-block">
-                <h5>Third slide label</h5>
-                <p>Some representative placeholder content for the third slide.</p>
+                <h5 style="color: white;">Nuevos talleres educativos</h5>
+                <a href="noticia3.html" style="color: white;">
+                  <p class="white-text">Ver más información</p>
+                </a>
               </div>
             </div>
           </div>
@@ -209,11 +246,22 @@
       </div>
 
       <!-- Texto al lado del carrusel de noticias-->
-      <div class="col-6">
-        <h2 class="text-center">Sobre la página</h2>
-        <p>La Lomita hace parte del corregimiento de San Pablo, un territorio con raíces históricas profundas que datan
+      <div class="col-6" style="font-size: 20px; text-align: center;">
+        <h2 class="text-center" style="color: white;">Sobre la página</h2>
+        <p style="color: antiquewhite;">La Lomita hace parte del corregimiento de San Pablo, un territorio con raíces
+          históricas profundas que datan
           del siglo XIX. Su riqueza cultural, sumada a su herencia indígena y su vocación agrícola, la convierten en un
-          lugar único dentro de Santa Rosa de Osos.</p>
+          lugar único dentro de Santa Rosa de Osos.<br><br>
+          La vida en La Lomita gira en torno a la producción agrícola, el trabajo comunitario y la conexión con centros
+          cercanos como San Pablo, donde se encuentran servicios clave para sus habitantes.<br>
+          Se Impulso al desarrollo rural
+          A través de programas como el Semillero Agroempresarial, se fortalecen las capacidades de los productores
+          locales, promoviendo el crecimiento sostenible y la innovación en el campo.
+          <br><br>
+          La Lomita es más que una vereda: es un territorio donde la naturaleza y la comunidad se entrelazan en armonía.
+          Sus cafetales en flor, los platanales que se abren paso entre las montañas, el agua que da vida a los peces y
+          la presencia de los animales en libertad, son testimonio de un entorno fértil y diverso.
+        </p>
 
 
       </div>

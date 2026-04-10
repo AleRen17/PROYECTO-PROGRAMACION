@@ -17,43 +17,160 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <!-- ── NAVEGACIÓN ── -->
-    <nav class="navbar-jac">
-      <a href="index.html" class="nav-brand">
-        <img
-          src="img/logo.png"
-          onerror="
-            this.style.background = 'var(--verde-claro)';
-            this.style.borderRadius = '50%';
-          "
-        />
-        <span>Junta de Acción Comunal Vereda la Lomita - San Pablo</span>
-      </a>
+    <!-- Barra de navegación -->
+  <!--Información sobre veredas (No tocar)-->
+  <div class="modal fade" id="vereda1" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
 
-      <ul class="nav-links-list">
-        <li>
-          <a href="proyectos_comunitarios.html" class="activo"
-            >Proyectos comunitarios</a
-          >
-        </li>
-        <li>
-          <a href="historia_patrimonio.html">Historia y patrimonio</a>
-        </li>
-        <li>
-          <a href="transparencia_gestion.html">Transparencia y gestión</a>
-        </li>
-        <li>
-          <div class="dropdown-wrap">
-            <button>Veredas aledañas ▾</button>
-            <div class="dropdown-menu-jac">
-              <a href="#">Vereda 1</a>
-              <a href="#">Vereda 2</a>
-              <a href="#">Vereda 3</a>
-            </div>
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">Vereda La Clara</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <div class="modal-body">
+          <img src="img/imagen la clara.jpg" class="img-fluid mb-3" alt="Imagen de la vereda">
+          <p>Vereda La Clara-Santa Rosa es una aldea en Antioquia, Región Andina. Vereda La Clara-Santa Rosa se
+            encuentra cerca de la localidad de Karelia, así como de Caserío La Clara-Santa Rosa.</p>
+          <br>
+          <p>Es reconocida por su cascada y por ser el limite del corregimiento de San Pablo.</p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="vereda2" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">Vereda El Caney</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <div class="modal-body">
+          <img src="img/imagen el caney.jpg" class="img-fluid mb-3" alt="Imagen de la vereda">
+          <p>La vereda El Caney, ubicada en el suroriente de Santa Rosa de Osos, Antioquia, es una zona de clima cálido
+            (aprox. 22°C - 30°C) asentada en la llanura aluvial del río Grande. Históricamente, su nombre proviene de
+            los "caneyes", construcciones usadas para secar tabaco por habitantes de origen africano. Es una zona con
+            alto potencial agrícola y de recreo, pero propensa a inundaciones.</p>
+          <br>
+          <p>Históricamente relacionada con el cultivo de tabaco. Actualmente, destaca por fincas cafeteras, trapiches
+            paneleros y viveros.</p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="modal fade" id="vereda3" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">Vereda La Pava Salamina</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <div class="modal-body">
+          <img src="img/imagen la pava.jpg" class="img-fluid mb-3" alt="Imagen de la vereda">
+          <p>Situada en el municipio de Santa Rosa de Osos, Antioquia, es una zona rural destacada por su asociación
+            de acueducto local. Esta vereda, a menudo mencionada junto con Salamina, se beneficia de iniciativas de
+            desarrollo comunitario y ambiental, incluyendo jornadas de siembra de árboles lideradas por la Universidad
+            de Antioquia.</p>
+          <br>
+          <p>Cuenta con una asociación de suscriptores privada y sin ánimo de lucro que garantiza el agua potable, el
+            Acueducto Vereda Salamina – Pava.</p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+
+
+  <div class="modal fade" id="vereda4" tabindex="-1" aria-labelledby="modalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content">
+
+        <div class="modal-header">
+          <h5 class="modal-title" id="modalLabel">Vereda El Chilimaco</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+
+        <div class="modal-body">
+          <img src="img/imagen chilimaco.jpg" class="img-fluid mb-3" alt="Imagen de la vereda">
+          <p>Es una zona rural ubicada principalmente en el corregimiento San Pablo del municipio de Santa Rosa de Osos, en el norte de Antioquia. Es reconocida por sus paisajes montañosos, cafetales, la proximidad al Cañón del Porce y por ser una ruta destacada para el senderismo y ciclismo de montaña. </p>
+          <br>
+          <p>Es popular entre senderistas (ruta desde la antigua fonda de Chilimaco hacia la quebrada La Morena) y ciclistas.</p>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </div>
+  <!--Fin Información sobre veredas (No tocar)-->
+
+  <nav class="navbar-jac">
+    <a href="index.html" class="nav-brand">
+      <img src="img/logo.png"
+        onerror="this.style.background = 'var(--verde-claro)'; this.style.borderRadius = '50%';" />
+      <span>Junta de Acción Comunal La Lomita</span>
+    </a>
+
+    <ul class="nav-links-list" class="d-flex justify-content-center align-items-center">
+      <li>
+        <a href="proyectos_comunitarios.html">Proyectos comunitarios</a>
+      </li>
+      <li>
+        <a href="historia_patrimonio.html">Historia y patrimonio</a>
+      </li>
+      <li>
+        <a href="transparencia_gestion.html">Transparencia y gestión</a>
+      </li>
+      <li>
+
+        <div class="dropdown-wrap">
+          <button>Veredas aledañas ▾</button>
+          <div class="dropdown-menu-jac">
+            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#vereda1">
+              Vereda La Clara
+            </a>
+
+            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#vereda2">
+              Vereda El Caney
+            </a>
+            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#vereda3">
+              Vereda La Pava Salamina
+            </a>
+            <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#vereda4">
+              Vereda El Chilimaco 
+            </a>
+
+
           </div>
-        </li>
-      </ul>
-    </nav>
+      </li>
+    </ul>
+  </nav>
 
     <!-- ── HERO ── -->
     <section class="hero">
